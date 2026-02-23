@@ -1,0 +1,513 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Imagen de fondo principal --- */
+.main{
+    width: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.233), rgba(0, 0, 0, 0.5)), url("2.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100vh; 
+}
+
+/* --- TOP BAR (CONTACTO) --- */
+.top-bar {
+    width: 100%;
+    background: #1877F2; 
+    height: 40px;        
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+
+.contact-links a {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    margin-left: 25px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px; 
+    transition: all 0.3s ease; /* suavidad */
+}
+
+.contact-links a:hover {
+    color: #ffffff;
+    transform: translateY(-2px); /* Mantiene el movimiento hacia arriba */
+}
+
+/* --- NAVBAR PRINCIPAL --- */
+.navbar {
+    width: 100%;
+    min-height: 120px;      
+    background: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5% 40px 5%;   /* El 40px de abajo le da aire a la curva */
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;             /* Asegura que esté por encima del fondo */
+
+    /* CURVA CÓNCAVA PROFESIONAL */
+    /* Esta línea dibuja la curva que se mete hacia adentro */
+    clip-path: path('M0,0 L1920,0 L1920,100 Q960,60 0,100 Z');
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 60px;
+    width: auto;
+    margin-right: 15px;
+}
+
+.logo {
+    color: #434444;
+    font-size: 24px;      
+    font-family: 'Roboto', sans-serif;
+    font-weight: 550;     /* letra "gruesita" pero fina */
+    margin: 0;            
+    white-space: nowrap;  
+    letter-spacing: 0.5px; /* Reducimos un poco el espacio para que el grosor luzca mejor */
+}
+
+/* --- MENÚ ANIMADO --- */
+ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+ul li {
+    margin-left: 30px; 
+}
+
+ul li a {
+    text-decoration: none;
+    color: #636667;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    display: inline-block; /* Necesario para que el transform funcione */
+    transition: 0.4s ease-in-out; /* animación original */
+}
+
+ul li a:hover {
+    color: #E63946; /* Cambia de color al pasar el mouse */
+    font-size: 16px; /* Aumenta el tamaño como en tu código original */
+    transform: scale(1.1); /* Agregamos un extra de movimiento suave */
+}
+
+/* --- BOTÓN REGISTRARSE --- */
+.btn-registrarse {
+    background: #E63946;
+    color: #fff !important;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    display: inline-block;
+    transition: 0.3s ease;
+}
+
+.btn-registrarse:hover {
+    background: #c1121f;
+    transform: scale(1.05); /* Mantiene el efecto de crecimiento */
+}
+
+/* --- RESPONSIVE  --- */
+@media (max-width: 1024px) {
+    .navbar {
+        height: auto;
+        flex-direction: column;
+        padding: 15px 5%;
+    }
+    
+    .menu {
+        margin-top: 15px;
+        width: 100%;
+    }
+    
+    ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    ul li {
+        margin: 10px 15px; /* Más espacio para que sea fácil tocar en celular */
+    }
+}
+
+/* -- LETRAS PARA FONDO PRINCIPAL (RESPONSIVE) -- */
+.content {
+    width: 90%;          /* Aumentamos al 90% para que en móvil use más espacio */
+    max-width: 1200px;   /* Pero que en PC no se estire demasiado */
+    position: absolute;
+    top: 55%;            /* Subimos un poco para que la curva no lo tape */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    z-index: 1;          /* Para que esté por encima del fondo */
+}
+
+.content h3 {
+    font-size: clamp(16px, 2vw, 22px); /* Tamaño fluido: min 16px, max 22px */
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.content h1 {
+    font-size: clamp(35px, 5vw, 65px); /* pequeño en móvil y grande en PC */
+    font-weight: 700; 
+    line-height: 1.1;
+    margin-bottom: 5px;
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.4);
+}
+
+.content .sub-title {
+    font-size: clamp(24px, 4vw, 45px); 
+    font-weight: 500; /* Aquí lo subimos para que sea más gruesa */
+    color: #ffffff; 
+    letter-spacing: 1px;
+    text-transform: uppercase; /* Opcional: en mayúsculas suele verse más imponente */
+}
+
+.content p {
+    font-size: clamp(14px, 1.5vw, 18px);
+    margin: 20px auto 30px;
+    max-width: 600px;    /* Para que el párrafo no sea una línea infinita en PC */
+    font-weight: 300;
+    line-height: 1.5;
+}
+
+/* --- AJUSTES ESPECÍFICOS PARA MÓVIL --- */
+@media (max-width: 768px) {
+    .content {
+        top: 60%;       /* En móvil lo bajamos un poquito más por el menú vertical */
+    }
+    
+    .content h1 {
+        margin-bottom: 15px; /* Más espacio entre títulos en pantallas pequeñas */
+    }
+}
+
+/* --- CONTENEDOR DE NIVELES --- */
+.niveles-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 60px 5%;
+    background: #ffffff; /* Fondo blanco para que resalten las cartas */
+    flex-wrap: wrap; /* Importante para el responsive */
+}
+
+/* --- ESTILO DE LA TARJETA --- */
+.nivel-card {
+    width: 320px;
+    background: #ffffff; /* Azul oscuro como el de tu imagen */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0);
+    transition: transform 0.3s ease;
+    position: relative;
+}
+
+.nivel-card:hover {
+    transform: translateY(-40px); /* Efecto de levante al pasar el mouse */
+}
+
+/* --- IMAGEN DE LA TARJETA --- */
+.nivel-img img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Evita que la foto se estire */
+    display: block;
+}
+
+/* --- TEXTO DE LA TARJETA --- */
+.nivel-info {
+    padding: 35px 20px;
+    text-align: center;
+    position: relative;
+}
+
+.nivel-info h2 {
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600; /* Letra gruesita */
+    line-height: 1.2;
+    margin: 0;
+}
+
+.nivel-info h2 span {
+    font-size: 30px; /* La palabra del nivel más grande */
+    letter-spacing: 1px;
+}
+
+/* --- CURVA DE COLOR INFERIOR --- */
+.curva-color {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 25px;
+    /* Esto crea la panza hacia arriba de color */
+    clip-path: ellipse(100% at 100%);
+}
+
+.amarillo { background: #4c4a49; }
+.verde { background: #4c4a49; }
+.naranja { background: #4c4a49; }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 1024px) {
+    .niveles-container {
+        gap: 20px;
+    }
+    .nivel-card {
+        width: 45%; /* En tablets se ven 2 por fila */
+    }
+}
+
+@media (max-width: 600px) {
+    .nivel-card {
+        width: 100%; /* En celular se ve 1 por fila */
+    }
+}
+
+/* --- SECCIÓN AGENDA --- */
+.agenda-section {
+    padding: 60px 10%;
+    background-color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+}
+
+.agenda-header h1 {
+    color: #E63946;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.agenda-header p {
+    color: #666;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+/* --- TABS (BOTONES DE MESES) --- */
+.agenda-tabs {
+    display: flex;
+    gap: 5px;
+    border-bottom: 1px solid #eee; /* Línea divisoria */
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 15px 30px;
+    border: none;
+    background: #f1f1f1;
+    color: #444;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px 4px 0 0; /* Solo redondeado arriba */
+}
+
+.tab-btn.active {
+    background: #E63946; 
+    color: white;
+}
+
+.tab-btn:hover:not(.active) {
+    background: #e5e5e5;
+}
+
+/* --- CONTENIDO DE LA AGENDA --- */
+.agenda-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.agenda-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .agenda-section {
+        padding: 40px 5%;
+    }
+
+    .tab-btn {
+        flex: 1 1 auto;
+        padding: 12px 15px;
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- FOOTER --- */
+.footer {
+    background-color: #c1121f;
+    color: #ffffff;
+    padding: 60px 0 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5%;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-logo {
+    width: 150px;
+    margin-bottom: 20px;
+    filter: brightness(1.2);
+}
+
+.footer-col h3 {
+    font-size: 20px;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Línea roja decorativa debajo de los títulos */
+.footer-col h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: #2fade3;
+}
+
+.footer-col p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #f7fafd;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul li a {
+    color: #cbd5e0;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    padding-left: 5px; /* Efectoo al pasar el mouse */
+}
+
+/* Redes Sociales */
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    width: 35px;
+    height: 35px;
+    background: rgba(74, 70, 70, 0.165);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.social-links a:hover {
+    background: #0894df;
+}
+
+/* Copyright */
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    font-size: 14px;
+    color: #ffffff;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-col h3::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+}
