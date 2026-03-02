@@ -4,15 +4,17 @@
         <title>RepublicaArgentina</title>
         <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="main">
             <div class="top-bar">
                 <div class="contact-links">
                     <a href="mailto:correo@ejemplo.com"><i class="fas fa-envelope"></i> correo@ejemplo.com</a>
-                    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                    <a href="#" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+                    <a href="https://wa.me/51900000000" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://www.facebook.com/share/1Az4zscGRw/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
                 </div>
             </div>
 
@@ -25,22 +27,35 @@
                 <div class="menu">
                     <ul>
                         <li><a href="#">INICIO</a></li>
-                        <li><a href="#">SERVICIOS</a></li>
-                        <li><a href="#">NOSOTROS</a></li>
-                        <li><a href="#">CONTACTO</a></li>
-                        <li><a href="#">Admision 2026</a></li>
-                        <li><a href="#" class="btn-registrarse">Registrarse</a></li>
-                    </ul>
+                        <li class="dropdown">
+                            <a href="#">INSTITUCIONAL <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a href="#" class="active-item">Personal <i class="fas fa-chevron-right"></i></a>
+                                    <ul class="submenu">
+                                        <li><a href="#">Directores</a></li>
+                                        <li><a href="#">Docentes</a></li>
+                                    </ul>
+                                </li>
+                                 <li><a href="#">Exalumnos</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="servicios.html">SERVICIOS</a></li>
+                            <li><a href="nosotros.html">NOSOTROS</a></li>
+                            <li><a href="#" class="btn-admision">Admisión 2026</a></li>
+                            <li><a href="#" class="btn-registrarse">Intranet</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+
             <div class="content">
                 <h3>Bienvenido a la</h3>
-                <h1>Institución Educativa Nacional</h1>
+                <h1>Institución Educativa Emblemática</h1>
                 <h2 class="sub-title">República Argentina</h2>
             </div>
         </div>
 
-        <!-- CONTENEDOR DE NIVELES -->
+
         <section class="niveles-container">
             <div class="nivel-card">
                 <div class="nivel-img">
@@ -73,8 +88,63 @@
     </div>
 </section>
 
-<!-- AGENDA -->
- <section class="agenda-section">
+<section id="sobre-nosotros" class="sobre-nosotros">
+    <div class="nosotros-container">
+        <div class="nosotros-img">
+            <img src="img/3.jpg" alt="Nuestra Institución">
+            <div class="experiencia-badge">
+                <span>+30</span>
+                <p>Años de Excelencia</p>
+            </div>
+        </div>
+
+        <div class="nosotros-text">
+            <h5>Sobre Nosotros</h5>
+            <h2>Formando líderes con valores en la <span>I.E. República Argentina</span></h2>
+            <p>Nuestra institución se ha consolidado como un referente educativo nacional, comprometida con el desarrollo integral de cada estudiante. Buscamos potenciar no solo el conocimiento académico, sino también la calidad humana y el pensamiento crítico.</p>
+            
+            <div class="nosotros-puntos">
+                <div class="punto-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Infraestructura moderna</p>
+                </div>
+                <div class="punto-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Plana docente altamente calificada y comprometida.</p>
+                </div>
+                <div class="punto-item">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Formación en valores y convivencia ciudadana.</p>
+                </div>
+            </div>
+
+            <a href="#" class="btn-leer-mas">Conoce más</a>
+        </div>
+    </div>
+</section>
+
+<section class="galeria-escolar">
+    <div class="galeria-header">
+        <span class="tag-line">Infraestructura Moderna</span>
+        <h1>Nuestros Espacios de <span>Aprendizaje</span></h1>
+        <div class="header-separator"></div>
+    </div>
+
+    <div class="galeria-wrapper">
+        <div class="galeria-grid">
+            <div class="galeria-item"><img src="img/galery1.jpg" alt="Actividad 1"></div>
+            <div class="galeria-item"><img src="img/galery2.jpg" alt="Actividad 2"></div>
+            <div class="galeria-item"><img src="img/galery3.jpg" alt="Actividad 3"></div>
+            <div class="galeria-item"><img src="img/galery4.jpg" alt="Actividad 4"></div>
+            <div class="galeria-item"><img src="img/galery5.jpg" alt="Actividad 5"></div>
+            <div class="galeria-item"><img src="img/galery6.jpg" alt="Actividad 6"></div>
+            <div class="galeria-item"><img src="img/galery7.jpg" alt="Actividad 7"></div>
+            <div class="galeria-item"><img src="img/galery8.jpg" alt="Actividad 8"></div>
+        </div>
+    </div>
+</section>
+
+<section class="agenda-section">
     <div class="agenda-header">
         <h1>Agenda</h1>
         <p>Fechas más importantes en el colegio.</p>
@@ -91,33 +161,13 @@
     </div>
 </section>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- FOOTER --- -->
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-col">
             <img src="img/insignia.jpg" alt="Logo" class="footer-logo">
             <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.facebook.com/share/1Az4zscGRw/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://wa.me/51900000000" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
         </div>

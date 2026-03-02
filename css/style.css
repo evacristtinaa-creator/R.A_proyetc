@@ -1,18 +1,25 @@
-*{
+/* ===========================  RESET  =========================== */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden; /* Evita scroll lateral en celulares */
 }
 
 /* --- Imagen de fondo principal --- */
-.main{
+.main {
     width: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.233), rgba(0, 0, 0, 0.5)), url("2.jpg");
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.233), rgba(0, 0, 0, 0.5)), url("../img/2.jpg");
     background-position: center;
     background-size: cover;
-    height: 100vh; 
+    height: 120vh; 
+    position: relative;
 }
 
-/* --- TOP BAR (CONTACTO) --- */
+/* =========================== TOP BAR (CONTACTO) =========================== */
 .top-bar {
     width: 100%;
     background: #1877F2; 
@@ -21,7 +28,6 @@
     justify-content: flex-end;
     align-items: center;
     padding: 0 5%;
-    box-sizing: border-box;
 }
 
 .contact-links a {
@@ -33,176 +39,215 @@
     display: inline-flex;
     align-items: center;
     gap: 8px; 
-    transition: all 0.3s ease; /* suavidad */
+    transition: all 0.3s ease;
 }
 
-.contact-links a:hover {
-    color: #ffffff;
-    transform: translateY(-2px); /* Mantiene el movimiento hacia arriba */
-}
-
-/* --- NAVBAR PRINCIPAL --- */
+/* =========================== NAVBAR PRINCIPAL =========================== */
 .navbar {
     width: 100%;
-    min-height: 120px;      
+    min-height: 80px; /* Reducido para que no sea tan ancha */
     background: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 5% 40px 5%;   /* El 40px de abajo le da aire a la curva */
-    box-sizing: border-box;
-    position: relative;
-    z-index: 10;             /* Asegura que esté por encima del fondo */
-
-    /* CURVA CÓNCAVA PROFESIONAL */
-    /* Esta línea dibuja la curva que se mete hacia adentro */
-    clip-path: path('M0,0 L1920,0 L1920,100 Q960,60 0,100 Z');
+    padding: 0 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.icon {
-    display: flex;
-    align-items: center;
-}
-
-.logo-img {
-    height: 60px;
-    width: auto;
-    margin-right: 15px;
-}
-
+.icon { display: flex; align-items: center; }
+.logo-img { height: 50px; width: auto; margin-right: 15px; }
 .logo {
     color: #434444;
-    font-size: 24px;      
+    font-size: clamp(16px, 2vw, 22px);
     font-family: 'Roboto', sans-serif;
-    font-weight: 550;     /* letra "gruesita" pero fina */
-    margin: 0;            
-    white-space: nowrap;  
-    letter-spacing: 0.5px; /* Reducimos un poco el espacio para que el grosor luzca mejor */
+    font-weight: 600;
 }
 
-/* --- MENÚ ANIMADO --- */
-ul {
+/* =========================== MENÚ =========================== */
+.menu {
+    background-color: transparent; /* Quitamos el rojo de fondo */
+}
+
+.menu ul {
+    list-style: none;
     display: flex;
     align-items: center;
-    list-style: none;
+    gap: 10px;
 }
 
-ul li {
-    margin-left: 30px; 
+.menu ul li {
+    position: relative;
 }
 
-ul li a {
+.menu ul li a {
+    color: #555; /* Letras grises */
     text-decoration: none;
-    color: #636667;
+    padding: 10px 15px;
     font-family: 'Roboto', sans-serif;
+    font-size: 14px;
     font-weight: 500;
-    font-size: 15px;
-    display: inline-block; /* Necesario para que el transform funcione */
-    transition: 0.4s ease-in-out; /* animación original */
+    transition: 0.3s;
 }
 
-ul li a:hover {
-    color: #E63946; /* Cambia de color al pasar el mouse */
-    font-size: 16px; /* Aumenta el tamaño como en tu código original */
-    transform: scale(1.1); /* Agregamos un extra de movimiento suave */
+.menu ul li a:hover {
+    color: #E63946; /* Rojo solo en el hover */
 }
 
-/* --- BOTÓN REGISTRARSE --- */
-.btn-registrarse {
-    background: #E63946;
-    color: #fff !important;
-    padding: 8px 20px;
-    border-radius: 50px;
-    text-decoration: none;
+/* =========================== BOTÓN INTRANET =========================== */
+.menu ul li .btn-registrarse {
+    background-color: #E63946;
+    color: #fff;
     font-weight: bold;
-    font-size: 13px;
-    display: inline-block;
-    transition: 0.3s ease;
+    border-radius: 50px; /* Forma de cápsula */
+    padding: 8px 20px;
+    box-shadow: 0 4px 6px rgba(230, 57, 70, 0.2);
 }
 
-.btn-registrarse:hover {
-    background: #c1121f;
-    transform: scale(1.05); /* Mantiene el efecto de crecimiento */
+.menu ul li .btn-registrarse:hover {
+    background-color: #c1121f;
+    transform: scale(1.05);
 }
 
-/* --- RESPONSIVE  --- */
-@media (max-width: 1024px) {
-    .navbar {
-        height: auto;
-        flex-direction: column;
-        padding: 15px 5%;
-    }
-    
-    .menu {
-        margin-top: 15px;
-        width: 100%;
-    }
-    
-    ul {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-    
-    ul li {
-        margin: 10px 15px; /* Más espacio para que sea fácil tocar en celular */
-    }
-}
-
-/* -- LETRAS PARA FONDO PRINCIPAL (RESPONSIVE) -- */
-.content {
-    width: 90%;          /* Aumentamos al 90% para que en móvil use más espacio */
-    max-width: 1200px;   /* Pero que en PC no se estire demasiado */
+/* =========================== DROPDOWN =========================== */
+.menu ul li .dropdown-menu {
     position: absolute;
-    top: 55%;            /* Subimos un poco para que la curva no lo tape */
+    top: 100%;
+    left: 0;
+    margin-top: 15px;
+    background-color: #ffffff;
+    display: none;
+    flex-direction: column;
+    min-width: 200px;
+    border-radius: 0 0 5px 5px;
+    padding: 10px 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-top: 3px solid #ffffff;
+    border: 1px solid #bab6b6;
+    z-index: 100;
+}
+
+/* Mostrar combo */
+.menu ul li:hover > .dropdown-menu {
+    display: flex;
+}
+
+/* Submenu lateral */
+.dropdown-submenu .submenu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: #ffffff;
+    display: none;
+    flex-direction: column;
+    min-width: 180px;
+    padding: 10px 0;
+    margin: 8px;
+    box-shadow: 10px 0 20px rgba(0,0,0,0.05);
+    border-left: 4px solid #ffffff;
+    border: 1px solid #959494;
+}
+
+.dropdown-submenu:hover > .submenu {
+    display: flex;
+}
+
+/* Items dentro del combo */
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu li a {
+    color: #444 !important;
+    padding: 12px 20px !important;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #f9f9f9;
+}
+
+.dropdown-menu li a:hover {
+    background-color: #f8f9fa;
+    color: #E63946 !important;
+    padding-left: 25px !important;
+}
+
+/* --- LETRAS DE BIENVENIDOS (ESTILO POPPINS) --- */
+.content {
+    width: 90%;
+    max-width: 1000px; /* Un poco más estrecho para que el texto respire */
+    position: absolute;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: #fff;
-    font-family: 'Roboto', sans-serif;
-    z-index: 1;          /* Para que esté por encima del fondo */
+    font-family: 'Poppins', sans-serif; /* Aplicamos Poppins */
+    z-index: 1;
 }
 
+/* "Bienvenido a la" */
 .content h3 {
-    font-size: clamp(16px, 2vw, 22px); /* Tamaño fluido: min 16px, max 22px */
-    font-weight: 300;
-    letter-spacing: 2px;
-    margin-bottom: 10px;
-}
-
-.content h1 {
-    font-size: clamp(35px, 5vw, 65px); /* pequeño en móvil y grande en PC */
-    font-weight: 700; 
-    line-height: 1.1;
+    font-size: clamp(16px, 1.5vw, 22px); 
+    font-weight: 300; /* Letra finita */
+    letter-spacing: 3px;
+    text-transform: uppercase;
     margin-bottom: 5px;
-    text-shadow: 2px 4px 10px rgba(0,0,0,0.4);
+    opacity: 0.9;
 }
 
+/* "Institución Educativa Emblematica" */
+.content h1 {
+    font-size: clamp(28px, 4.5vw, 55px); /* Tamaño más controlado */
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+}
+
+/* "REPÚBLICA ARGENTINA" */
 .content .sub-title {
-    font-size: clamp(24px, 4vw, 45px); 
-    font-weight: 500; /* Aquí lo subimos para que sea más gruesa */
-    color: #ffffff; 
-    letter-spacing: 1px;
-    text-transform: uppercase; /* Opcional: en mayúsculas suele verse más imponente */
+    font-size: clamp(20px, 3vw, 38px); 
+    font-weight: 500; /* Grosor intermedio */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: block;
+    color: #f1f1f1;
+    position: relative;
+    padding-top: 10px;
 }
 
-.content p {
-    font-size: clamp(14px, 1.5vw, 18px);
-    margin: 20px auto 30px;
-    max-width: 600px;    /* Para que el párrafo no sea una línea infinita en PC */
-    font-weight: 300;
-    line-height: 1.5;
-}
-
-/* --- AJUSTES ESPECÍFICOS PARA MÓVIL --- */
+/* --- RESPONSIVE CELULARES --- */
 @media (max-width: 768px) {
-    .content {
-        top: 60%;       /* En móvil lo bajamos un poquito más por el menú vertical */
+    .navbar {
+        height: auto;
+        padding: 10px 5%;
+        flex-direction: column;
     }
     
-    .content h1 {
-        margin-bottom: 15px; /* Más espacio entre títulos en pantallas pequeñas */
+    .menu ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 5px;
+        margin-top: 10px;
     }
+    
+    .menu ul li { width: 100%; text-align: center; }
+    
+    .menu ul li .dropdown-menu,
+    .dropdown-submenu .submenu {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        box-shadow: none;
+    }
+    
+    .content { top: 60%; }
 }
+
 
 /* --- CONTENEDOR DE NIVELES --- */
 .niveles-container {
@@ -218,7 +263,7 @@ ul li a:hover {
 .nivel-card {
     width: 320px;
     background: #ffffff; /* Azul oscuro como el de tu imagen */
-    border-radius: 8px;
+    border-radius: 1px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0);
     transition: transform 0.3s ease;
@@ -288,6 +333,151 @@ ul li a:hover {
         width: 100%; /* En celular se ve 1 por fila */
     }
 }
+
+/* --- SECCIÓN SOBRE NOSOTROS --- */
+.sobre-nosotros {
+    padding: 80px 5%;
+    background-color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.nosotros-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap; /* Para que en móvil se ponga uno abajo del otro */
+}
+
+/* Imagen con efectos */
+.sobre-nosotros {
+    padding: 100px 5%;
+    background-color: #f9f9f9; /* El fondo gris sutil que pediste */
+    font-family: 'Poppins', sans-serif;
+}
+.nosotros-img {
+    flex: 1;
+    min-width: 300px;
+    position: relative;
+}
+
+.nosotros-img img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 20px 20px 0px #f1f1f1; /* Sombra sólida decorativa */
+}
+
+.experiencia-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -10px;
+    background: #E63946;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+}
+
+.experiencia-badge span {
+    font-size: 28px;
+    font-weight: 800;
+    display: block;
+}
+
+.experiencia-badge p {
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+/* Texto */
+.nosotros-text {
+    flex: 1.2;
+    min-width: 300px;
+}
+
+.nosotros-text h5 {
+    color: #1877F2;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.nosotros-text h2 {
+    font-size: clamp(24px, 3vw, 36px);
+    color: #333;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.nosotros-text h2 span {
+    color: #E63946;
+}
+
+.nosotros-text p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+/* Lista de puntos */
+.nosotros-puntos {
+    margin-bottom: 30px;
+}
+
+.punto-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.punto-item i {
+    color: #1877F2;
+    font-size: 18px;
+}
+
+.punto-item p {
+    margin-bottom: 0;
+    font-weight: 500;
+    color: #444;
+}
+
+/* Botón Conoce Más */
+.btn-leer-mas {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-leer-mas:hover {
+    background: #E63946;
+    transform: translateY(-3px);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 992px) {
+    .nosotros-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .punto-item {
+        justify-content: center;
+    }
+    .nosotros-img {
+        margin-bottom: 40px;
+    }
+}
+
 
 /* --- SECCIÓN AGENDA --- */
 .agenda-section {
@@ -367,7 +557,146 @@ ul li a:hover {
     }
 }
 
+/* --- GALERÍA ESTILO COLEGIO --- */
+.galeria-escolar {
+    padding: 80px 0;
+    background: #ffffff;
+    overflow: hidden;
+}
 
+.galeria-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.galeria-header .tag {
+    color: #189ae5;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.galeria-header h2 {
+    color: #001f3f;
+    font-size: 32px;
+    font-weight: 700;
+    margin-top: 5px;
+}
+
+/* --- CONTENEDOR DEL DESLIZAMIENTO --- */
+.galeria-header {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 0 20px;
+}
+
+.tag-line {
+    display: block;
+    color: #010a10; /* El azul claro que usamos */
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.galeria-header h1 {
+    color: #001f3f; /* Azul marino profundo */
+    font-size: 38px;
+    font-weight: 300; /* Letra delgada para "Nuestros Espacios de" */
+    margin: 0;
+}
+
+.galeria-header h1 span {
+    font-weight: 800; /* Letra bien gruesa para "Aprendizaje" */
+    color: #001f3f;
+}
+
+.header-separator {
+    width: 80px;
+    height: 4px;
+    background: #e3342f; /* El rojo de la agenda para dar contraste */
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* Ajuste responsive para el título */
+@media (max-width: 768px) {
+    .galeria-header h1 {
+        font-size: 28px;
+    }
+    .tag-line {
+        font-size: 12px;
+    }
+}
+.galeria-wrapper {
+    width: 100%;
+    display: flex;
+}
+
+.galeria-grid {
+    display: flex;
+    gap: 0; /* Fotos pegadas */
+    animation: scrollGaleria 35s linear infinite;
+}
+
+.galeria-grid:hover {
+    animation-play-state: paused; /* Se detiene para que los padres vean bien las fotos */
+}
+
+.galeria-item {
+    width: 500px; /* Tamaño fijo para ordenado */
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid #fff; /* Separación finísima */
+}
+
+.galeria-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter 0.6s ease;
+}
+
+/* Efecto Elegante al pasar el mouse */
+.galeria-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(238, 236, 176, 0.042); /* Azul marino traslúcido */
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.galeria-item:hover::after {
+    opacity: 1;
+}
+
+.galeria-item:hover img {
+    transform: scale(1.1);
+    filter: blur(2px);
+}
+
+/* ANIMACIÓN */
+@keyframes scrollGaleria {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-350px * 5)); }
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .galeria-item {
+        width: 250px;
+        height: 180px;
+    }
+    .galeria-header h2 { font-size: 24px; }
+}
 
 
 
