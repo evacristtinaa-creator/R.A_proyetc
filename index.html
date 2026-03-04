@@ -1,196 +1,277 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>RepublicaArgentina</title>
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;800&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <div class="main">
-            <div class="top-bar">
-                <div class="contact-links">
-                    <a href="mailto:correo@ejemplo.com"><i class="fas fa-envelope"></i> correo@ejemplo.com</a>
-                    <a href="https://wa.me/51900000000" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                    <a href="https://www.facebook.com/share/1Az4zscGRw/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
-                </div>
+<head>
+    <title>RepublicaArgentina</title>
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Playfair+Display:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="main">
+
+        <!-- TOP BAR -->
+        <div class="top-bar">
+            <div class="contact-links">
+                <a href="mailto:correo@ejemplo.com"><i class="fas fa-envelope"></i> correo@ejemplo.com</a>
+                <a href="https://wa.me/51900000000" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://www.facebook.com/share/1Az4zscGRw/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+            </div>
+        </div>
+
+        <!-- NAVBAR -->
+        <div class="navbar">
+            <div class="icon">
+                <img src="img/insignia.jpg" alt="Logo" class="logo-img">
+                <h2 class="logo">I.E. REPÚBLICA ARGENTINA</h2>
             </div>
 
-            <div class="navbar">
-                <div class="icon">
-                    <img src="img/insignia.jpg" alt="Logo" class="logo-img">
-                    <h2 class="logo">IE REPÚBLICA ARGENTINA</h2>
-                </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#">INICIO</a></li>
 
-                <div class="menu">
-                    <ul>
-                        <li><a href="#">INICIO</a></li>
-                        <li class="dropdown">
-                            <a href="#">INSTITUCIONAL <i class="fas fa-chevron-down"></i></a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-submenu">
-                                    <a href="#" class="active-item">Personal <i class="fas fa-chevron-right"></i></a>
-                                    <ul class="submenu">
-                                        <li><a href="#">Directores</a></li>
-                                        <li><a href="#">Docentes</a></li>
-                                    </ul>
-                                </li>
-                                 <li><a href="#">Exalumnos</a></li>
+                    <li class="dropdown">
+                        <a href="#">INSTITUCIONAL <i class="fas fa-chevron-down"></i></a>
+
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a href="#">Personal <i class="fas fa-chevron-right"></i></a>
+                                <ul class="submenu">
+                                    <li><a href="#">Dirección</a></li>
+                                    <li><a href="#">Docentes</a></li>
+                                    <li><a href="#">Administración</a></li>
+                                    <li><a href="#">Tutores</a></li>
                                 </ul>
                             </li>
-                            <li><a href="servicios.html">SERVICIOS</a></li>
-                            <li><a href="nosotros.html">NOSOTROS</a></li>
-                            <li><a href="#" class="btn-admision">Admisión 2026</a></li>
-                            <li><a href="#" class="btn-registrarse">Intranet</a></li>
+
+                            <li class="dropdown-submenu">
+                                <a href="#">Archivo de Documento <i class="fas fa-chevron-right"></i></a>
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="archivos/CURSOPANDAS.pdf" target="_blank">
+                                            Reglamento Interno
+                                        </a>
+                                    </li>
+                                    <li><a href="#">Normas de Convivencia</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="#">Himno</a></li>
+                            <li><a href="#">Historia</a></li>
+                            <li><a href="#">Reconocimientos</a></li>
+                            <li><a href="#">Exalumnos</a></li>
                         </ul>
-                    </div>
-                </div>
+                    </li>
 
-            <div class="content">
-                <h3>Bienvenido a la</h3>
-                <h1>Institución Educativa Emblemática</h1>
-                <h2 class="sub-title">República Argentina</h2>
+                    <li><a href="#servicios">SERVICIOS</a></li>
+                    <li><a href="#nosotros">NOSOTROS</a></li>
+                    <li><a href="nosotros.html">CONTACTO</a></li>
+                    <li><a href="#" class="btn-admision">Admisión 2026</a></li>
+                    <li><a href="#" class="btn-registrarse">Intranet</a></li>
+                </ul>
             </div>
         </div>
 
+        <!-- HERO -->
+        <div class="content">
+            <h3>Bienvenido a la</h3>
+            <h1>Institución Educativa Emblemática</h1>
+            <h2 class="sub-title">República Argentina</h2>
+        </div>
 
-        <section class="niveles-container">
-            <div class="nivel-card">
-                <div class="nivel-img">
-                    <img src="img/inicial.jpg" alt="Nivel Inicial">
-                </div>
-                <div class="nivel-info">
-            <h2>NIVEL <br> <span>INICIAL</span></h2>
-            <div class="curva-color amarillo"></div>
-        </div>
-    </div>
-    
-    <div class="nivel-card">
-        <div class="nivel-img">
-            <img src="img/primaria.jpg" alt="Nivel Primaria">
-        </div>
-        <div class="nivel-info">
-            <h2>NIVEL <br> <span>PRIMARIA</span></h2>
-            <div class="curva-color verde"></div>
-        </div>
     </div>
 
-    <div class="nivel-card">
-        <div class="nivel-img">
-            <img src="img/4.jpg" alt="Nivel Secundaria">
-        </div>
-        <div class="nivel-info">
-            <h2>NIVEL <br> <span>SECUNDARIA</span></h2>
-            <div class="curva-color naranja"></div>
-        </div>
-    </div>
-</section>
+    <!-- NIVELES -->
+    <section id="servicios" class="niveles-container">
 
-<section id="sobre-nosotros" class="sobre-nosotros">
-    <div class="nosotros-container">
-        <div class="nosotros-img">
-            <img src="img/3.jpg" alt="Nuestra Institución">
-            <div class="experiencia-badge">
-                <span>+30</span>
-                <p>Años de Excelencia</p>
+        <div class="nivel-card">
+            <div class="nivel-img">
+                <img src="img/inicial.jpg" alt="Nivel Inicial">
+            </div>
+            <div class="nivel-info">
+                <h2>NIVEL <br><span>INICIAL</span></h2>
+                <div class="curva-color amarillo"></div>
             </div>
         </div>
 
-        <div class="nosotros-text">
-            <h5>Sobre Nosotros</h5>
-            <h2>Formando líderes con valores en la <span>I.E. República Argentina</span></h2>
-            <p>Nuestra institución se ha consolidado como un referente educativo nacional, comprometida con el desarrollo integral de cada estudiante. Buscamos potenciar no solo el conocimiento académico, sino también la calidad humana y el pensamiento crítico.</p>
-            
-            <div class="nosotros-puntos">
-                <div class="punto-item">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Infraestructura moderna</p>
-                </div>
-                <div class="punto-item">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Plana docente altamente calificada y comprometida.</p>
-                </div>
-                <div class="punto-item">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Formación en valores y convivencia ciudadana.</p>
-                </div>
+        <div class="nivel-card">
+            <div class="nivel-img">
+                <img src="img/2.jpg" alt="Nivel Primaria">
+            </div>
+            <div class="nivel-info">
+                <h2>NIVEL <br><span>PRIMARIA</span></h2>
+                <div class="curva-color verde"></div>
+            </div>
+        </div>
+
+        <div class="nivel-card">
+            <div class="nivel-img">
+                <img src="img/4.jpg" alt="Nivel Secundaria">
+            </div>
+            <div class="nivel-info">
+                <h2>NIVEL <br><span>SECUNDARIA</span></h2>
+                <div class="curva-color naranja"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- SOBRE NOSOTROS -->
+    <section id="nosotros" class="sobre-nosotros">
+        <div class="nosotros-container">
+
+            <div class="nosotros-galeria">
+                <img src="img/1.jpg" alt="">
+                <img src="img/2.jpg" alt="">
+                <img src="img/3.jpg" alt="">
+                <img src="img/4.jpg" alt="">
             </div>
 
-            <a href="#" class="btn-leer-mas">Conoce más</a>
+            <div class="nosotros-text">
+                <h2>Sobre Nosotros</h2>
+
+                <h3>Nuestra Historia</h3>
+                <p>
+                    La I.E. República Argentina es una institución educativa emblemática
+                    de Nuevo Chimbote comprometida con la excelencia pública...
+                </p>
+
+                <h3>Misión</h3>
+                <p>
+                    Formar ciudadanos íntegros, competentes y con valores...
+                </p>
+
+                <h3>Visión</h3>
+                <p>
+                    Ser una institución pública referente por su excelencia académica...
+                </p>
+
+                <a href="#" class="btn-leer-mas">Conoce más</a>
+            </div>
+
         </div>
-    </div>
-</section>
+    </section>
 
-<section class="galeria-escolar">
-    <div class="galeria-header">
-        <span class="tag-line">Infraestructura Moderna</span>
-        <h1>Nuestros Espacios de <span>Aprendizaje</span></h1>
-        <div class="header-separator"></div>
-    </div>
-
-    <div class="galeria-wrapper">
-        <div class="galeria-grid">
-            <div class="galeria-item"><img src="img/galery1.jpg" alt="Actividad 1"></div>
-            <div class="galeria-item"><img src="img/galery2.jpg" alt="Actividad 2"></div>
-            <div class="galeria-item"><img src="img/galery3.jpg" alt="Actividad 3"></div>
-            <div class="galeria-item"><img src="img/galery4.jpg" alt="Actividad 4"></div>
-            <div class="galeria-item"><img src="img/galery5.jpg" alt="Actividad 5"></div>
-            <div class="galeria-item"><img src="img/galery6.jpg" alt="Actividad 6"></div>
-            <div class="galeria-item"><img src="img/galery7.jpg" alt="Actividad 7"></div>
-            <div class="galeria-item"><img src="img/galery8.jpg" alt="Actividad 8"></div>
-        </div>
-    </div>
-</section>
-
-<section class="agenda-section">
+    <section class="agenda-section">
     <div class="agenda-header">
         <h1>Agenda</h1>
         <p>Fechas más importantes en el colegio.</p>
     </div>
-
     <div class="agenda-tabs">
-        <button class="tab-btn active">Horario de Atención</button>
-        <button class="tab-btn">Matriculas</button>
-        <button class="tab-btn">Eventos</button>
+        <button class="tab-btn active" data-img="img/ejemplojpg">Horario de Atención</button>
+        <button class="tab-btn" data-img="img/Matrículas.jpg">Matrículas</button>
+        <button class="tab-btn" data-img="img/eventos.jpg">Eventos</button>
     </div>
-
     <div class="agenda-content">
-        <img src="img/ejemplo.jpg" alt="Agenda 2026" class="agenda-img">
+        <img src="img/horario.jpg" alt="Agenda 2026" class="agenda-img" id="agenda-display">
     </div>
 </section>
 
-<footer class="footer">
-    <div class="footer-container">
-        <div class="footer-col">
-            <img src="img/insignia.jpg" alt="Logo" class="footer-logo">
-            <div class="social-links">
-                <a href="https://www.facebook.com/share/1Az4zscGRw/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://wa.me/51900000000" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+    <section id="contacto-premium">
+    <div class="contacto-contenedor">
+        <h2 class="contacto-titulo">¡Únete a nuestra familia educativa!</h2>
+        
+        <div class="contacto-grid-main">
+            <div class="formulario-box">
+                <form class="card-form">
+                    <h3>Envíanos un mensaje</h3>
+                    <div class="input-fila">
+                        <div class="input-grupo">
+                            <label>Nombres</label>
+                            <input type="text" placeholder="Ej: Juan Pérez" required>
+                        </div>
+                        <div class="input-grupo">
+                            <label>Apellidos</label>
+                            <input type="text" placeholder="Ej: García López" required>
+                        </div>
+                    </div>
+                    
+                    <div class="input-grupo">
+                        <label>Número de Contacto</label>
+                        <input type="tel" placeholder="+51 900 000 000">
+                    </div>
+
+                    <div class="input-grupo">
+                        <label>Tu consulta</label>
+                        <textarea placeholder="Cuéntanos: edad del estudiante, grado y nivel (inicial, primaria o secundaria)..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-principal">ENVIAR INFORMACIÓN</button>
+                </form>
+            </div>
+
+            <div class="info-sidebar">
+                <div class="card-dato">
+                    <div class="icono-destaque">📍</div>
+                    <div>
+                        <h4>Visítanos en:</h4>
+                        <p>AA.HH. Teresa de Calcuta, Nuevo Chimbote, Ancash, Perú</p>
+                    </div>
+                </div>
+
+                <div class="card-mapa">
+                    <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="280" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
         </div>
+    </div>
+</section>
 
-        <div class="footer-col">
-            <h3>Contacto</h3>
-            <p><i class="fas fa-phone"></i> Secretaria: +51 987 654 321</p>
-            <p><i class="fas fa-envelope"></i> informes@republicaargentina.edu.pe</p>
+    <!-- LEMA -->
+    <section class="lema-institucional">
+        <div class="overlay"></div>
+
+        <div class="contenido-lema">
+            <h2>Institución Educativa Emblemática República Argentina</h2>
+            <p class="lema">
+                "Formando ciudadanos con valores, disciplina y excelencia académica"
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <img src="img/insignia.jpg" alt="Logo" class="footer-logo">
+                <div class="social-links">
+                    <a href="https://www.facebook.com/share/1Az4zscGRw/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://wa.me/51900000000" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-phone"></i> Secretaria: +51 987 654 321</p>
+                <p><i class="fas fa-envelope"></i> informes@republicaargentina.edu.pe</p>
+            </div>
+
+            <div class="footer-col">
+                <h3>Ubícanos</h3>
+                <ul>
+                    <li>
+                        <a href="#">
+                            Avenida Pacífico s/n, Urbanización Buenos Aires, Nuevo Chimbote
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
 
-        <div class="footer-col">
-            <h3>Ubiquenos</h3>
-            <ul>
-                <li><a href="#">Av. República Argentina, Nuevo Chimbote</a></li>
-            </ul>
+        <div class="footer-bottom">
+            <p>&copy; 2026 I.E. República Argentina - Todos los derechos reservados.</p>
         </div>
-    </div>
-    
-    <div class="footer-bottom">
-        <p>&copy; 2026 I.E. República Argentina - Todos los derechos reservados.</p>
-    </div>
-</footer>
+    </footer>
 
-        <script src="" async defer></script>
-    </body>
+</body>
 </html>

@@ -12,7 +12,7 @@ body {
 /* --- Imagen de fondo principal --- */
 .main {
     width: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.233), rgba(0, 0, 0, 0.5)), url("../img/2.jpg");
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.233), rgba(0, 0, 0, 0.5)), url("../img/galery2.jpg");
     background-position: center;
     background-size: cover;
     height: 120vh; 
@@ -100,15 +100,21 @@ body {
 .menu ul li .btn-registrarse {
     background-color: #E63946;
     color: #fff;
-    font-weight: bold;
-    border-radius: 50px; /* Forma de cápsula */
-    padding: 8px 20px;
-    box-shadow: 0 4px 6px rgba(230, 57, 70, 0.2);
+    font-weight: 600;
+    border-radius: 50px;
+    padding: 9px 22px;
+    box-shadow: 0 6px 14px rgba(230, 57, 70, 0.25);
+    transition: 
+        transform 0.2s ease,
+        box-shadow 0.3s ease;
+    display: inline-block;
 }
 
 .menu ul li .btn-registrarse:hover {
-    background-color: #c1121f;
-    transform: scale(1.05);
+    background-color: #E63946; /* se mantiene */
+    color: #fff;               /* se mantiene */
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(230, 57, 70, 0.35);
 }
 
 /* =========================== DROPDOWN =========================== */
@@ -184,14 +190,14 @@ body {
     transform: translate(-50%, -50%);
     text-align: center;
     color: #fff;
-    font-family: 'Poppins', sans-serif; /* Aplicamos Poppins */
+    font-family: 'Arial', sans-serif; /* Aplicamos Poppins */
     z-index: 1;
 }
 
 /* "Bienvenido a la" */
 .content h3 {
     font-size: clamp(16px, 1.5vw, 22px); 
-    font-weight: 300; /* Letra finita */
+    font-weight: 500; /* Letra finita */
     letter-spacing: 3px;
     text-transform: uppercase;
     margin-bottom: 5px;
@@ -201,7 +207,7 @@ body {
 /* "Institución Educativa Emblematica" */
 .content h1 {
     font-size: clamp(28px, 4.5vw, 55px); /* Tamaño más controlado */
-    font-weight: 500;
+    font-weight: 200;
     line-height: 1.2;
     margin-bottom: 10px;
     text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
@@ -210,7 +216,7 @@ body {
 /* "REPÚBLICA ARGENTINA" */
 .content .sub-title {
     font-size: clamp(20px, 3vw, 38px); 
-    font-weight: 500; /* Grosor intermedio */
+    font-weight: 600; /* Grosor intermedio */
     text-transform: uppercase;
     letter-spacing: 2px;
     display: block;
@@ -263,7 +269,7 @@ body {
 .nivel-card {
     width: 320px;
     background: #ffffff; /* Azul oscuro como el de tu imagen */
-    border-radius: 1px;
+    border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0);
     transition: transform 0.3s ease;
@@ -302,7 +308,12 @@ body {
     font-size: 30px; /* La palabra del nivel más grande */
     letter-spacing: 1px;
 }
-
+.nivel-desc {
+    font-size: 14px;
+    color: #555;
+    margin-top: 8px;
+    line-height: 1.4;
+}
 /* --- CURVA DE COLOR INFERIOR --- */
 .curva-color {
     position: absolute;
@@ -314,9 +325,9 @@ body {
     clip-path: ellipse(100% at 100%);
 }
 
-.amarillo { background: #4c4a49; }
-.verde { background: #4c4a49; }
-.naranja { background: #4c4a49; }
+.amarillo { background: #ffea00; }
+.verde { background: #2fff00; }
+.naranja { background: #0080ff; }
 
 /* --- RESPONSIVE --- */
 @media (max-width: 1024px) {
@@ -337,7 +348,7 @@ body {
 /* --- SECCIÓN SOBRE NOSOTROS --- */
 .sobre-nosotros {
     padding: 80px 5%;
-    background-color: #ffffff;
+    background-color: #dcdcdc6f;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -350,22 +361,32 @@ body {
     flex-wrap: wrap; /* Para que en móvil se ponga uno abajo del otro */
 }
 
-/* Imagen con efectos */
-.sobre-nosotros {
-    padding: 100px 5%;
-    background-color: #f9f9f9; /* El fondo gris sutil que pediste */
-    font-family: 'Poppins', sans-serif;
-}
-.nosotros-img {
-    flex: 1;
-    min-width: 300px;
-    position: relative;
+.nosotros {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    padding: 80px 8%;
 }
 
-.nosotros-img img {
+/* GALERÍA */
+.nosotros-galeria {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.nosotros-galeria img {
     width: 100%;
+    height: 200px;
+    object-fit: cover;
     border-radius: 15px;
-    box-shadow: 20px 20px 0px #f1f1f1; /* Sombra sólida decorativa */
+    transition: 0.4s;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.nosotros-galeria img:hover {
+    transform: scale(1.05);
 }
 
 .experiencia-badge {
@@ -398,7 +419,7 @@ body {
 }
 
 .nosotros-text h5 {
-    color: #1877F2;
+    color: #333;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 14px;
@@ -407,14 +428,10 @@ body {
 
 .nosotros-text h2 {
     font-size: clamp(24px, 3vw, 36px);
-    color: #333;
+    color: #000000;
     line-height: 1.2;
     margin-bottom: 20px;
     font-weight: 700;
-}
-
-.nosotros-text h2 span {
-    color: #E63946;
 }
 
 .nosotros-text p {
@@ -451,7 +468,7 @@ body {
 .btn-leer-mas {
     display: inline-block;
     padding: 12px 30px;
-    background: #333;
+    background: #E63946;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -460,7 +477,7 @@ body {
 }
 
 .btn-leer-mas:hover {
-    background: #E63946;
+    background: #333;
     transform: translateY(-3px);
 }
 
@@ -557,12 +574,6 @@ body {
     }
 }
 
-/* --- GALERÍA ESTILO COLEGIO --- */
-.galeria-escolar {
-    padding: 80px 0;
-    background: #ffffff;
-    overflow: hidden;
-}
 
 .galeria-header {
     text-align: center;
@@ -710,16 +721,221 @@ body {
 
 
 
+#contacto-premium {
+    padding: 80px 20px;
+    background-color: #f0f9ff; /* Celeste muy clarito de fondo */
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+.contacto-contenedor {
+    max-width: 1200px; /* Más ancho */
+    margin: 0 auto;
+}
+
+.contacto-titulo {
+    text-align: center;
+    color: #0369a1; /* Azul/Celeste fuerte */
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    border-bottom: 4px solid #facc15; /* Subrayado Amarillo */
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.contacto-grid-main {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+/* --- FORMULARIO AGRANDADO --- */
+.formulario-box {
+    flex: 2; /* Ocupa más espacio */
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    border-top: 8px solid #ef4444; /* Borde Superior Rojo */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.card-form h3 {
+    margin-top: 0;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.input-fila {
+    display: flex;
+    gap: 20px;
+}
+
+.input-grupo {
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.input-grupo label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #444;
+}
+
+#contacto-premium input, 
+#contacto-premium textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e0f2fe; /* Borde celeste suave */
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: 0.3s;
+    background: #f8fafc;
+}
+
+#contacto-premium input:focus, 
+#contacto-premium textarea:focus {
+    outline: none;
+    border-color: #38bdf8; /* Celeste vibrante al escribir */
+    background: white;
+}
+
+#contacto-premium textarea {
+    height: 160px; /* Más alto */
+    resize: none;
+}
+
+.btn-principal {
+    width: 100%;
+    padding: 18px;
+    background: #ef4444; /* ROJO */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #b91c1c; /* Sombra roja oscura para efecto 3D */
+    transition: 0.2s;
+}
+
+.btn-principal:hover {
+    background: #dc2626;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #b91c1c;
+}
+
+/* --- SIDEBAR (Info y Mapa) --- */
+.info-sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card-dato {
+    background: #facc15; /* AMARILLO */
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #854d0e; /* Texto marrón oscuro para que se lea en amarillo */
+}
+
+.icono-destaque {
+    font-size: 2rem;
+    background: white;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+.card-mapa {
+    border-radius: 20px;
+    overflow: hidden;
+    border: 4px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .contacto-grid-main { flex-direction: column; }
+    .input-fila { flex-direction: column; gap: 0; }
+    .contacto-titulo { font-size: 1.8rem; }
+}
 
 
+/* =============================
+   SECCIÓN LEMA INSTITUCIONAL
+============================= */
 
+.lema-institucional {
+    position: relative;
+    height: 350px;
+    background: url("../img/Footer.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
 
+/* Oscurecer imagen */
+.lema-institucional .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(156, 171, 185, 0.141);
+}
 
+/* Contenido */
+.contenido-lema {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 20px;
+}
 
+.logo-lema {
+    width: 80px;
+    margin-bottom: 20px;
+}
+
+.contenido-lema h2 {
+    font-size: 25px;
+    font-family: 'Poppins', serif;
+    margin-bottom: 15px;
+    font-weight: 300;
+}
+
+.lema {
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 25px;
+    opacity: 0.9;
+}
+
+/* Botón elegante */
+.btn-lema {
+    display: inline-block;
+    padding: 10px 25px;
+    border: 2px solid white;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn-lema:hover {
+    background: white;
+    color: #b30000;
+}
 
 /* --- FOOTER --- */
 .footer {
-    background-color: #c1121f;
+    background-color: #0551cc;
     color: #ffffff;
     padding: 60px 0 20px;
     font-family: 'Roboto', sans-serif;
@@ -761,7 +977,7 @@ body {
     bottom: 0;
     width: 50px;
     height: 2px;
-    background-color: #2fade3;
+    background-color: #b30000;
 }
 
 .footer-col p {
@@ -811,7 +1027,7 @@ body {
 }
 
 .social-links a:hover {
-    background: #0894df;
+    background: #b30000;
 }
 
 /* Copyright */
