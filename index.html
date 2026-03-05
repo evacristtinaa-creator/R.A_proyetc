@@ -1,121 +1,138 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>RepublicaArgentina</title>
-
-    <!-- ===== CSS PRINCIPAL ===== -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- ===== FONT AWESOME ===== -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <!-- ===== GOOGLE FONTS ===== -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Playfair+Display:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">
+<title>RepublicaArgentina</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-<!-- =========================================
-                CONTENEDOR PRINCIPAL
-========================================= -->
 <div class="main">
+<!-- TOP BAR -->
+<div class="top-bar">
+<div class="contact-links">
 
-    <!-- ===== TOP BAR ===== -->
-    <div class="top-bar">
-        <div class="contact-links">
-            <a href="mailto:correo@ejemplo.com">
-                <i class="fas fa-envelope"></i> correo@ejemplo.com
-            </a>
+<a href="mailto:correo@ejemplo.com">
+<i class="fas fa-envelope"></i> correo@ejemplo.com
+</a>
 
-            <a href="https://wa.me/51900000000" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
+<a href="https://wa.me/51900000000" target="_blank">
+<i class="fab fa-whatsapp"></i> WhatsApp
+</a>
 
-            <a href="https://www.facebook.com/share/1Az4zscGRw/" target="_blank">
-                <i class="fab fa-facebook"></i> Facebook
-            </a>
-        </div>
-    </div>
-
-    <!-- ===== NAVBAR ===== -->
-    <div class="navbar">
-
-        <!-- Logo -->
-        <div class="icon">
-            <img src="img/insignia.jpg" alt="Logo" class="logo-img">
-            <h2 class="logo">I.E. REPÚBLICA ARGENTINA</h2>
-        </div>
-
-        <!-- Menú -->
-        <div class="menu">
-            <ul>
-
-                <li><a href="#">INICIO</a></li>
-
-                <!-- Dropdown Institucional -->
-                <li class="dropdown">
-                    <a href="#">
-                        INSTITUCIONAL <i class="fas fa-chevron-down"></i>
-                    </a>
-
-                    <ul class="dropdown-menu">
-
-                        <!-- Submenu Personal -->
-                        <li class="dropdown-submenu">
-                            <a href="#">
-                                Personal <i class="fas fa-chevron-right"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li><a href="#">Dirección</a></li>
-                                <li><a href="#">Docentes</a></li>
-                                <li><a href="#">Administración</a></li>
-                                <li><a href="#">Tutores</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- Submenu Documentos -->
-                        <li class="dropdown-submenu">
-                            <a href="#">
-                                Archivo de Documento <i class="fas fa-chevron-right"></i>
-                            </a>
-                            <ul class="submenu">
-                                <li>
-                                    <a href="archivos/CURSOPANDAS.pdf" target="_blank">
-                                        Reglamento Interno
-                                    </a>
-                                </li>
-                                <li><a href="#">Normas de Convivencia</a></li>
-                            </ul>
-                        </li>
-
-                        <li><a href="#">Himno</a></li>
-                        <li><a href="#">Historia</a></li>
-                        <li><a href="#">Reconocimientos</a></li>
-                        <li><a href="#">Exalumnos</a></li>
-
-                    </ul>
-                </li>
-
-                <li><a href="#servicios">SERVICIOS</a></li>
-                <li><a href="#nosotros">NOSOTROS</a></li>
-                <li><a href="nosotros.html">CONTACTO</a></li>
-                <li><a href="#" class="btn-admision">Admisión 2026</a></li>
-                <li><a href="#" class="btn-registrarse">Intranet</a></li>
-
-            </ul>
-        </div>
-    </div>
-
-    <!-- ===== HERO ===== -->
-    <div class="content">
-        <h3>Bienvenido a la</h3>
-        <h1>Institución Educativa Emblemática</h1>
-        <h2 class="sub-title">República Argentina</h2>
-    </div>
+<a href="https://www.facebook.com/share/1Az4zscGRw/" target="_blank">
+<i class="fab fa-facebook"></i> Facebook
+</a>
 
 </div>
+</div>
+
+
+<!-- NAVBAR -->
+<div class="navbar">
+
+<!-- BOTON HAMBURGUESA -->
+<div class="menu-toggle">
+<i class="fas fa-bars"></i>
+</div>
+
+<!-- LOGO -->
+<div class="icon">
+<img src="img/insignia.jpg" class="logo-img">
+<h2 class="logo">I.E. REPÚBLICA ARGENTINA</h2>
+</div>
+
+
+<!-- MENU -->
+<div class="menu">
+
+<ul>
+
+<li><a href="#">INICIO</a></li>
+
+<li class="dropdown">
+
+<a href="#">
+INSTITUCIONAL <i class="fas fa-chevron-down"></i>
+</a>
+
+<ul class="dropdown-menu">
+
+<li class="dropdown-submenu">
+
+<a href="#">
+Personal <i class="fas fa-chevron-right"></i>
+</a>
+
+<ul class="submenu">
+<li><a href="#">Dirección</a></li>
+<li><a href="#">Docentes</a></li>
+<li><a href="#">Administración</a></li>
+<li><a href="#">Tutores</a></li>
+</ul>
+
+</li>
+
+<li class="dropdown-submenu">
+
+<a href="#">
+Archivo de Documento <i class="fas fa-chevron-right"></i>
+</a>
+
+<ul class="submenu">
+<li><a href="#">Reglamento Interno</a></li>
+<li><a href="#">Normas de Convivencia</a></li>
+</ul>
+
+</li>
+
+<li><a href="#">Himno</a></li>
+<li><a href="#">Historia</a></li>
+<li><a href="#">Reconocimientos</a></li>
+<li><a href="#">Exalumnos</a></li>
+
+</ul>
+
+</li>
+
+<li><a href="#servicios">SERVICIOS</a></li>
+<li><a href="#nosotros">NOSOTROS</a></li>
+<li><a href="#contacto-premium">CONTACTO</a></li>
+
+<li>
+<a href="#" class="btn-admision">
+Admisión 2026
+</a>
+</li>
+
+<li>
+<a href="#" class="btn-registrarse">
+Intranet
+</a>
+</li>
+
+</ul>
+
+</div>
+</div>
+
+<!-- HERO -->
+<div class="content">
+
+<h3>Bienvenido a la</h3>
+
+<h1>Institución Educativa Emblemática</h1>
+
+<h2 class="sub-title">
+República Argentina
+</h2>
+
+</div>
+
+</div>
+
 
 <!-- =========================================
                     NIVELES
@@ -267,11 +284,6 @@
         </div>
 
         <div class="actividad-card">
-            <i class="fas fa-language"></i>
-            <p>Idiomas</p>
-        </div>
-
-        <div class="actividad-card">
             <i class="fas fa-microscope"></i>
             <p>Ciencias</p>
         </div>
@@ -417,8 +429,8 @@
         <!-- Columna 2 -->
         <div class="footer-col">
             <h3>Contacto</h3>
-            <p><i class="fas fa-phone"></i> Secretaria: +51 987 654 321</p>
-            <p><i class="fas fa-envelope"></i> informes@republicaargentina.edu.pe</p>
+            <p><i class="fas fa-phone"></i> Telefono: (043) 311944</p>
+            <p><i class="fas fa-envelope"></i> informes@republicaargentina.gmail.com</p>
 
             <p>
                 <i class="fas fa-school"></i>
@@ -447,6 +459,66 @@
         <p>&copy; 2026 I.E. República Argentina - Todos los derechos reservados.</p>
     </div>
 </footer>
+
+<script>
+const toggle = document.querySelector(".menu-toggle");
+const menu = document.querySelector(".menu");
+/* abrir / cerrar con el botón */
+toggle.addEventListener("click", (e)=>{
+    e.stopPropagation();
+    menu.classList.toggle("active");
+});
+
+/* cerrar si haces click fuera del menú */
+document.addEventListener("click", function(e){
+
+    if(!menu.contains(e.target) && !toggle.contains(e.target)){
+        menu.classList.remove("active");
+    }
+
+});
+
+
+/* cerrar al hacer click en un link */
+document.querySelectorAll(".menu a").forEach(link=>{
+    link.addEventListener("click",()=>{
+        menu.classList.remove("active");
+    });
+});
+
+
+/* dropdown movil */
+
+document.querySelectorAll(".dropdown > a").forEach(link=>{
+link.addEventListener("click",function(e){
+
+if(window.innerWidth <= 768){
+
+e.preventDefault();
+this.nextElementSibling.classList.toggle("active");
+
+}
+
+});
+});
+
+
+document.querySelectorAll(".dropdown-submenu > a").forEach(link=>{
+link.addEventListener("click",function(e){
+
+if(window.innerWidth <= 768){
+
+e.preventDefault();
+this.nextElementSibling.classList.toggle("active");
+
+}
+
+});
+});
+
+</script>
+
+
 <!-- =========================================
                     SCRIPT
 ========================================= -->

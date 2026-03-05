@@ -529,6 +529,53 @@ body {
 .galeria-controles button:active {
     transform: scale(0.95);
 }
+/* =========================================
+        RESPONSIVE INSTALACIONES
+========================================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+
+    .instalaciones-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+
+    .instalaciones-section{
+        padding: 60px 6%;
+    }
+
+    .instalaciones-title{
+        font-size: 24px;
+    }
+
+    .instalaciones-grid{
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .inst-item img{
+        height: 200px;
+    }
+
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px){
+
+    .instalaciones-title{
+        font-size: 22px;
+    }
+
+    .inst-item img{
+        height: 180px;
+    }
+
+}
 
 /* =========================================
         ACTIVIDADES
@@ -536,25 +583,28 @@ body {
 
 .actividades-section {
     padding: 70px 10%;
-    background: #f3eee6; /* tono similar al de tu imagen */
+    background: #c5daf2; /* tono similar al de tu imagen */
     text-align: center;
 }
 
 .actividades-title {
+    font-family: 'Poppins', sans-serif;
     font-size: 28px;
-    margin-bottom: 40px;
     font-weight: 600;
+    margin-bottom: 40px;
+    text-align: center; /* Esto lo mueve justo al centro de la pantalla */
+    color: #333;    /* Opcional: El azul institucional que te recomendé */
 }
 
 .actividades-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
 }
 
 .actividad-card {
     background: #fff;
-    padding: 30px 20px;
+    padding: 15px 20px;
     border-radius: 14px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.08);
     cursor: pointer;
@@ -568,11 +618,11 @@ body {
 
 /* Colores personalizados como tu imagen */
 .actividad-card:nth-child(1) i { color: #2f6df6; }
-.actividad-card:nth-child(2) i { color: #e54c7d; }
-.actividad-card:nth-child(3) i { color: #4caf50; }
-.actividad-card:nth-child(4) i { color: #7e57c2; }
-.actividad-card:nth-child(5) i { color: #e53935; }
-.actividad-card:nth-child(6) i { color: #d32f2f; }
+.actividad-card:nth-child(2) i { color: #4caf50; }
+.actividad-card:nth-child(3) i { color: #7e57c2; }
+.actividad-card:nth-child(4) i { color: #e53935; }
+.actividad-card:nth-child(5) i { color: #d32f79; }
+.actividad-card:nth-child(6) i { color: #d32f79; }
 
 .actividad-card p {
     font-weight: 500;
@@ -673,36 +723,6 @@ body {
     .nivel-card {
         width: 100%; /* En celular se ve 1 por fila */
     }
-}
-
-/* --- TABS (BOTONES DE MESES) --- */
-.agenda-tabs {
-    display: flex;
-    gap: 5px;
-    border-bottom: 1px solid #ffffff; /* Línea divisoria */
-    margin-bottom: 30px;
-    flex-wrap: wrap;
-}
-
-.tab-btn {
-    padding: 15px 30px;
-    border: none;
-    background: #f1f1f1;
-    color: #444;
-    font-size: 14px;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 4px 4px 0 0; /* Solo redondeado arriba */
-}
-
-.tab-btn.active {
-    background: #E63946; 
-    color: white;
-}
-
-.tab-btn:hover:not(.active) {
-    background: #e5e5e5;
 }
 
 .info-section {
@@ -873,6 +893,63 @@ body {
         font-size: 12px;
     }
 }
+/* ===============================
+   RESPONSIVE INFO SECTION
+================================ */
+
+/* TABLET */
+@media (max-width: 1024px){
+
+.info-section{
+padding:60px 6%;
+}
+
+.info-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+/* CELULAR */
+@media (max-width: 768px){
+
+.info-section{
+padding:50px 5%;
+}
+
+.info-title{
+font-size:24px;
+text-align:center;
+}
+
+.info-grid{
+grid-template-columns:1fr;
+gap:15px;
+}
+
+.info-card{
+padding:22px;
+font-size:14px;
+text-align:center;
+}
+
+}
+/* CELULAR PEQUEÑO */
+@media (max-width:480px){
+
+.info-section{
+padding:40px 20px;
+}
+
+.info-title{
+font-size:22px;
+}
+
+.info-card{
+box-shadow:0 5px 15px rgba(0,0,0,0.1);
+}
+
+}
 
 #contacto-premium {
     padding: 80px 20px;
@@ -1018,6 +1095,118 @@ body {
     .contacto-titulo { font-size: 1.8rem; }
 }
 
+/* ===============================
+   TABLET
+================================ */
+@media (max-width: 1024px){
+
+.contacto-grid-main{
+flex-direction:column;
+gap:30px;
+}
+
+.formulario-box{
+padding:35px;
+}
+
+.contacto-titulo{
+font-size:2rem;
+}
+
+}
+
+/* ===============================
+   CELULAR
+================================ */
+@media (max-width:768px){
+
+#contacto-premium{
+padding:60px 15px;
+}
+
+.contacto-titulo{
+font-size:1.8rem;
+margin-bottom:35px;
+text-align:center;
+}
+
+.formulario-box{
+padding:25px;
+border-radius:15px;
+}
+
+.card-form h3{
+font-size:1.4rem;
+}
+
+.input-fila{
+flex-direction:column;
+gap:0;
+}
+
+#contacto-premium input,
+#contacto-premium textarea{
+padding:12px;
+font-size:0.95rem;
+}
+
+.btn-principal{
+padding:15px;
+font-size:1rem;
+}
+
+.card-dato{
+padding:15px;
+gap:10px;
+}
+
+.icono-destaque{
+font-size:1.5rem;
+padding:8px;
+}
+
+.card-mapa iframe{
+height:260px;
+}
+
+}
+
+/* ===============================
+   CELULAR PEQUEÑO
+================================ */
+@media (max-width:480px){
+
+.contacto-titulo{
+font-size:1.5rem;
+}
+
+.formulario-box{
+padding:20px;
+}
+
+.card-form h3{
+font-size:1.2rem;
+}
+
+#contacto-premium textarea{
+height:90px;
+}
+
+.btn-principal{
+font-size:0.9rem;
+padding:14px;
+}
+
+.card-dato{
+flex-direction:column;
+align-items:flex-start;
+}
+
+.icono-destaque{
+font-size:1.3rem;
+}
+
+}
 
 /* =============================
    SECCIÓN LEMA INSTITUCIONAL
@@ -1217,3 +1406,87 @@ footer a:hover {
         justify-content: center;
     }
 }
+
+
+
+
+/* ================= MENU HAMBURGUESA ================= */
+
+.menu-toggle{
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+}
+
+/* ===== VERSION MOVIL ===== */
+
+@media (max-width:768px){
+
+.menu-toggle{
+    display:block;
+}
+
+/* menu lateral */
+.menu{
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100vh;
+    background: #ffffff;
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+    padding-top: 90px;
+    transition: 0.3s;
+    overflow-y:auto;
+}
+
+/* menu visible */
+.menu.active{
+    left:0;
+}
+
+.menu ul{
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left:20px;
+}
+
+.menu ul li{
+    width:100%;
+}
+
+.menu ul li a{
+    display:block;
+    width:100%;
+    padding:14px 0;
+    border-bottom:1px solid #eee;
+}
+
+/* ===== SUBMENUS ===== */
+
+.dropdown-menu{
+    position:static;
+    display:none;
+    box-shadow:none;
+    border:none;
+    padding-left:10px;
+}
+
+.dropdown-menu.active{
+    display:block;
+}
+
+.submenu{
+    position:static;
+    display:none;
+    box-shadow:none;
+    border:none;
+    padding-left:15px;
+}
+
+.submenu.active{
+    display:block;
+}
+
+}
+
