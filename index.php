@@ -1,0 +1,1 @@
+<?php echo "<h1>¡Si funciona!</h1>"; ?>

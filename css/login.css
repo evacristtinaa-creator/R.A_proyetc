@@ -1,176 +1,197 @@
-/* Importar una fuente moderna similar a la del diseño */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
 }
 
-body {
-    background-color: #f4f7f6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+body{
+height:100vh;
 }
 
-.login-container {
-    display: flex;
-    width: 100%;
-    height: 100vh;
-    background: #fff;
-    overflow: hidden;
+/* PANTALLA DE CARGA */
+
+#loader{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+background:#e0870b;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
 }
 
-/* Lado Izquierdo: Imagen de fondo */
-.login-info {
-    flex: 1.2;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
-                url('../img/fondo_wakatobi.jpg'); /* Asegúrate de tener esta imagen */
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    padding: 0 10%;
-    color: white;
+.loader-content{
+text-align:center;
+color:white;
 }
 
-.overlay-text h1 {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    max-width: 500px;
-    font-weight: 700;
+.loader-icon{
+font-size:70px;
+color:#12a8ff;
+animation:girar 2s linear infinite;
 }
 
-/* Lado Derecho: El Formulario */
-.login-form-section {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: white;
-    position: relative;
-    /* Esta es la curva que se "come" a la imagen */
-    clip-path: polygon(15% 0%, 100% 0%, 100% 100%, 0% 100%, 8% 50%);
-    padding: 40px;
+@keyframes girar{
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
 }
 
-.form-content {
-    width: 100%;
-    max-width: 400px;
+/* CONTENEDOR */
+
+.container{
+display:flex;
+height:100vh;
+width:100%;
 }
 
-.form-content h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    color: #111;
+/* IMAGEN COMO FONDO */
+
+.lado-imagen{
+width:55%;
+background-image:url("../img/Login.jpg"); /* TU FOTO */
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
 }
 
-/* Estilos de los Inputs */
-.input-group {
-    margin-bottom: 20px;
+/* LOGIN */
+
+.lado-login{
+width:45%;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#ffffff;
 }
 
-.input-group label {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: 8px;
-    color: #444;
+/* CAJA LOGIN */
+
+.login-box{
+width:320px;
+text-align:center;
 }
 
-.input-group input {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    outline: none;
-    transition: 0.3s;
+.logo{
+width:150px;
+margin-bottom:15px;
 }
 
-.input-group input:focus {
-    border-color: #000;
+.login-box h2{
+font-size:28px;
+margin-bottom:5px;
 }
 
-/* Password Wrapper para el icono del ojo */
-.password-wrapper {
-    position: relative;
+.login-box p{
+color:gray;
+margin-bottom:25px;
 }
 
-.toggle-password {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    color: #777;
+/* INPUTS */
+
+.login-box input,
+.login-box select{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:14px;
 }
 
-/* Opciones y Botones */
-.form-options {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.85rem;
-    margin-bottom: 25px;
+/* BOTON */
+
+.login-box button{
+width:100%;
+padding:12px;
+border:none;
+border-radius:8px;
+background:#026a9a;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:0.3s;
 }
 
-.form-options a {
-    color: #000;
-    text-decoration: none;
-    font-weight: 600;
+.login-box button:hover{
+background:#de2905;
 }
 
-.btn-signin {
-    width: 100%;
-    padding: 14px;
-    background: #111;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    margin-bottom: 20px;
+.olvide-password{
+display:block;
+margin-top:12px;
+font-size:14px;
+color:#555;
+text-decoration:none;
+transition:0.3s;
 }
 
-.separator {
-    text-align: center;
-    position: relative;
-    margin-bottom: 20px;
-    color: #777;
-    font-size: 0.9rem;
+.olvide-password:hover{
+color:hsl(207, 88%, 9%);
+text-decoration:underline;
 }
 
-.separator::before, .separator::after {
-    content: "";
-    position: absolute;
-    top: 50%;
-    width: 45%;
-    height: 1px;
-    background: #ddd;
+
+/* 📱 RESPONSIVE */
+
+/* TABLET */
+
+@media(max-width:900px){
+
+.container{
+flex-direction:column;
 }
 
-.separator::before { left: 0; }
-.separator::after { right: 0; }
-
-.btn-google {
-    width: 100%;
-    padding: 12px;
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    font-weight: 500;
+.lado-imagen{
+width:100%;
+height:40vh;
 }
 
-/* Responsivo */
-@media (max-width: 900px) {
-    .login-info { display: none; }
-    .login-form-section { clip-path: none; flex: 1; }
+.lado-login{
+width:100%;
+height:60vh;
+}
+
+}
+
+.redes-sociales{
+margin-top:20px;
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+.redes-sociales a{
+width:40px;
+height:40px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:50%;
+background:#f0f0f0;
+color:#333;
+font-size:18px;
+transition:0.3s;
+}
+
+
+/* CELULAR */
+
+@media(max-width:500px){
+
+.login-box{
+width:85%;
+}
+
+.logo{
+width:70px;
+}
+
+.login-box h2{
+font-size:24px;
+}
+
 }

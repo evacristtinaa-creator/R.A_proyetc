@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
@@ -15,7 +16,7 @@
 <div class="contact-links">
 
 <a href="mailto:correo@ejemplo.com">
-<i class="fas fa-envelope"></i> correo@ejemplo.com
+<i class="fas fa-envelope"></i> iee.republicaargenrina@gmail.com
 </a>
 
 <a href="https://wa.me/51900000000" target="_blank">
@@ -30,93 +31,70 @@
 </div>
 
 
-<!-- NAVBAR -->
-<div class="navbar">
+<header class="header">
 
-<!-- BOTON HAMBURGUESA -->
-<div class="menu-toggle">
-<i class="fas fa-bars"></i>
-</div>
+    <div class="logo">
+        <img src="img/insignia.jpg" alt="Logo Colegio">
+        <span>I.E. REPÚBLICA ARGENTINA</span>
+    </div>
 
-<!-- LOGO -->
-<div class="icon">
-<img src="img/insignia.jpg" class="logo-img">
-<h2 class="logo">I.E. REPÚBLICA ARGENTINA</h2>
-</div>
+    <nav class="navbar">
 
+        <ul class="menu">
 
-<!-- MENU -->
-<div class="menu">
+            <li class="dropdown">
+                <a href="#">COLEGIO</a>
+                <ul class="submenu">
+                    <li><a href="#">Bienvenida</a></li>
+                    <li><a href="#">Misión</a></li>
+                    <li><a href="#">Visión</a></li>
+                    <li><a href="#">Historia</a></li>
+                    <li><a href="#">Himno</a></li>
+                </ul>
+            </li>
 
-<ul>
+            <li class="dropdown">
+                <a href="#">INSTITUCIONAL</a>
+                <ul class="submenu">
 
-<li><a href="#">INICIO</a></li>
+                    <li class="dropdown-sub">
+                        <a href="#">Personal ▸</a>
+                        <ul class="submenu2">
+                            <li><a href="#">Dirección</a></li>
+                            <li><a href="#">Plana docente</a></li>
+                            <li><a href="#">Tutores</a></li>
+                            <li><a href="#">Personal adicional</a></li>
+                        </ul>
+                    </li>
 
-<li class="dropdown">
+                    <li class="dropdown-sub">
+                        <a href="#">Archivos de Documento ▸</a>
+                        <ul class="submenu2">
+                            <li><a href="#">Reglamento interno</a></li>
+                            <li><a href="#">Normas de convivencia</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Material Educativo</a></li>
 
-<a href="#">
-INSTITUCIONAL <i class="fas fa-chevron-down"></i>
-</a>
+                </ul>
+            </li>
 
-<ul class="dropdown-menu">
+            <li><a href="#servicios">SERVICIOS</a></li>
+            <li><a href="#nosotros">NOSOTROS</a></li>
+            <li><a href="#contacto-premium">CONTACTO</a></li>
+            <li><a href="#">Admisión 2026</a></li>
 
-<li class="dropdown-submenu">
+        </ul>
 
-<a href="#">
-Personal <i class="fas fa-chevron-right"></i>
-</a>
+        <a href="login.php" class="btn-intranet">Intranet</a>
 
-<ul class="submenu">
-<li><a href="#">Dirección</a></li>
-<li><a href="#">Docentes</a></li>
-<li><a href="#">Administración</a></li>
-<li><a href="#">Tutores</a></li>
-</ul>
+        <div class="menu-toggle">
+            ☰
+        </div>
 
-</li>
+    </nav>
 
-<li class="dropdown-submenu">
-
-<a href="#">
-Archivo de Documento <i class="fas fa-chevron-right"></i>
-</a>
-
-<ul class="submenu">
-<li><a href="#">Reglamento Interno</a></li>
-<li><a href="#">Normas de Convivencia</a></li>
-</ul>
-
-</li>
-
-<li><a href="#">Himno</a></li>
-<li><a href="#">Historia</a></li>
-<li><a href="#">Reconocimientos</a></li>
-<li><a href="#">Exalumnos</a></li>
-
-</ul>
-
-</li>
-
-<li><a href="#servicios">SERVICIOS</a></li>
-<li><a href="#nosotros">NOSOTROS</a></li>
-<li><a href="#contacto-premium">CONTACTO</a></li>
-
-<li>
-<a href="#" class="btn-admision">
-Admisión 2026
-</a>
-</li>
-
-<li>
-<a href="login.php" class="btn-registrarse">
-Intranet
-</a>
-</li>
-
-</ul>
-
-</div>
-</div>
+</header>
 
 <!-- HERO -->
 <div class="content">
@@ -298,12 +276,12 @@ República Argentina
 <section class="info-section">
     <h2 class="info-title">Información Institucional</h2>
     <div class="info-grid">
-        <div class="info-card" data-img="img/horario.jpg">Horario de Atencion</div>
-        <div class="info-card" data-img="img/matricula.jpg">Matrículas</div>
-        <div class="info-card" data-img="img/reglamento.jpg">Admisiones</div>
-        <div class="info-card" data-img="img/reglamento.jpg">Reglamento interno</div>
-        <div class="info-card" data-img="img/reglamento.jpg">Normas de Convivencia</div>
-        <div class="info-card" data-img="img/reglamento.jpg">Uniforme</div>
+        <div class="info-card" data-pdf="pdfs/horario.pdf">Horario de Atención</div>
+        <div class="info-card" data-pdf="pdfs/matricula.pdf">Matrículas</div>
+        <div class="info-card" data-pdf="pdfs/admisiones.pdf">Admisiones</div>
+        <div class="info-card" data-pdf="pdfs/reglamento.pdf">Reglamento interno</div>
+        <div class="info-card" data-pdf="pdfs/normas.pdf">Normas de Convivencia</div>
+        <div class="info-card" data-pdf="pdfs/uniforme.pdf">Uniforme</div>
     </div>
 </section>
 <!-- ===== MODAL ===== -->
@@ -459,6 +437,17 @@ República Argentina
         <p>&copy; 2026 I.E. República Argentina - Todos los derechos reservados.</p>
     </div>
 </footer>
+
+
+
+<script>
+    document.querySelectorAll(".info-card").forEach(card => {
+    card.addEventListener("click", () => {
+        const pdf = card.getAttribute("data-pdf");
+        window.open(pdf, "_blank");
+    });
+});
+</script>
 
 <script>
 const toggle = document.querySelector(".menu-toggle");

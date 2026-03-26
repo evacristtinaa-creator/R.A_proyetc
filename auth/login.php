@@ -1,48 +1,124 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Intranet - República Argentina</title>
-    <link rel="stylesheet" href="css/login.css"> </head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login Sistema Escolar</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<link rel="stylesheet" href="../css/login.css">
+
+</head>
 <body>
-    <div class="login-container">
-        <div class="login-info">
-            <div class="overlay-text">
-                <h1>Colaboración para optimizar el potencial local...</h1>
-            </div>
-        </div>
 
-        <div class="login-form-section">
-            <form action="auth/validar.php" method="POST" class="form-content">
-                <h2>Welcome Back</h2>
-                
-                <div class="input-group">
-                    <label>Email</label>
-                    <input type="email" name="email" placeholder="Enter your email" required>
-                </div>
+<div id="loader">
 
-                <div class="input-group">
-                    <label>Password</label>
-                    <div class="password-wrapper">
-                        <input type="password" id="pass" name="password" placeholder="Enter your password" required>
-                        <span class="toggle-password">👁️</span>
-                    </div>
-                </div>
-
-                <div class="form-options">
-                    <label><input type="checkbox"> Remember me</label>
-                    <a href="#">Forgot Password</a>
-                </div>
-
-                <button type="submit" class="btn-signin">Sign In</button>
-                
-                <div class="separator"><span>Or</span></div>
-
-                <button type="button" class="btn-google">
-                    <img src="img/google-icon.png" alt=""> Sign in with Google
-                </button>
-            </form>
-        </div>
+    <div class="loader-content">
+        <i class="fas fa-graduation-cap loader-icon"></i>
+        <p>Cargando sistema...</p>
     </div>
+
+</div>
+
+<div class="container">
+
+    <!-- LADO IMAGEN -->
+    <div class="lado-imagen"></div>
+
+    <!-- LOGIN -->
+    <div class="lado-login">
+
+        <div class="login-box">
+
+            <!-- LOGO -->
+            <img src="../img/insignia.jpg" class="logo">
+
+            <h2>Iniciar Sesión</h2>
+            <p>Sistema Académico</p>
+
+            <!-- FORMULARIO LOGIN -->
+            <div id="login-form">
+
+                <form action="validar_login.php" method="POST">
+
+                    <input type="text" name="usuario" placeholder="Usuario o ID">
+
+                    <input type="password" name="password" placeholder="Contraseña">
+
+                    <button type="submit">Ingresar</button>
+
+                </form>
+
+                <a href="#" class="olvide-password" onclick="mostrarRecuperar()">
+                ¿Olvidó su contraseña?
+                </a>
+
+            </div>
+
+            <!-- FORMULARIO RECUPERAR -->
+            <div id="recuperar-form" style="display:none;">
+
+                <input type="text" placeholder="Ingrese su usuario o correo">
+
+                <button>Enviar</button>
+
+                <br><br>
+
+                <a href="#" class="olvide-password" onclick="mostrarLogin()">
+                Volver al inicio de sesión
+                </a>
+
+            </div>
+
+            <!-- REDES SOCIALES -->
+            <div class="redes-sociales">
+
+                <a href="https://www.facebook.com/share/1Az4zscGRw/" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <a href="#" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="#" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+window.addEventListener("load", function(){
+    setTimeout(function(){
+        document.getElementById("loader").style.display = "none";
+    }, 1500);
+});
+
+</script>
+
+<script>
+
+function mostrarRecuperar(){
+document.getElementById("login-form").style.display="none";
+document.getElementById("recuperar-form").style.display="block";
+}
+
+function mostrarLogin(){
+document.getElementById("login-form").style.display="block";
+document.getElementById("recuperar-form").style.display="none";
+}
+
+</script>
+
 </body>
 </html>

@@ -20,6 +20,7 @@ body {
 }
 
 /* =========================== TOP BAR (CONTACTO) =========================== */
+
 .top-bar {
     width: 100%;
     background: #1877F2; 
@@ -42,143 +43,263 @@ body {
     transition: all 0.3s ease;
 }
 
-/* =========================== NAVBAR PRINCIPAL =========================== */
-.navbar {
-    width: 100%;
-    min-height: 80px; /* Reducido para que no sea tan ancha */
-    background: #ffffff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 5%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+/* =========================== RESPONSIVE =========================== */
+
+@media (max-width: 768px){
+
+.top-bar{
+    height: 35px;
+    padding: 0 3%;
+    justify-content: center;
 }
 
-.icon { display: flex; align-items: center; }
-.logo-img { height: 50px; width: auto; margin-right: 15px; }
-.logo {
-    color: #434444;
-    font-size: clamp(16px, 2vw, 22px);
-    font-family: 'Roboto', sans-serif;
-    font-weight: 600;
+.contact-links a{
+    font-size:12px;
+    margin-left:15px;
+    gap:5px;
 }
 
-/* =========================== MENÚ =========================== */
-.menu {
-    background-color: transparent; /* Quitamos el rojo de fondo */
 }
 
-.menu ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+@media (max-width:480px){
+
+.top-bar{
+    height:auto;
+    padding:6px 10px;
 }
 
-.menu ul li {
-    position: relative;
+.contact-links{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
 }
 
-.menu ul li a {
-    color: #555; /* Letras grises */
-    text-decoration: none;
-    padding: 10px 15px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    font-weight: 500;
-    transition: 0.3s;
+.contact-links a{
+    margin-left:0;
+    font-size:11px;
 }
 
-.menu ul li a:hover {
-    color: #E63946; /* Rojo solo en el hover */
 }
 
-/* =========================== BOTÓN INTRANET =========================== */
-.menu ul li .btn-registrarse {
-    background-color: #E63946;
-    color: #fff;
-    font-weight: 600;
-    border-radius: 50px;
-    padding: 9px 22px;
-    box-shadow: 0 6px 14px rgba(230, 57, 70, 0.25);
-    transition: 
-        transform 0.2s ease,
-        box-shadow 0.3s ease;
-    display: inline-block;
+/* =========================================
+   HEADER
+========================================= */
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 60px;
+    background:#ffffff;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    font-family:'Poppins', sans-serif;
+
+    position:sticky;
+    top:0;
+    z-index:1000;
 }
 
-.menu ul li .btn-registrarse:hover {
-    background-color: #E63946; /* se mantiene */
-    color: #fff;               /* se mantiene */
-    transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(230, 57, 70, 0.35);
+/* =========================================
+   LOGO
+========================================= */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
 }
 
-/* =========================== DROPDOWN =========================== */
-.menu ul li .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    margin-top: 15px;
-    background-color: #ffffff;
-    display: none;
-    flex-direction: column;
-    min-width: 200px;
-    border-radius: 0 0 5px 5px;
-    padding: 10px 0;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    border-top: 3px solid #ffffff;
-    border: 1px solid #bab6b6;
-    z-index: 100;
+.logo img{
+    width:50px;
 }
 
-/* Mostrar combo */
-.menu ul li:hover > .dropdown-menu {
-    display: flex;
+.logo span{
+    font-size:18px;
+    font-weight:600;
+    color:#333;
+    white-space:nowrap;
 }
 
-/* Submenu lateral */
-.dropdown-submenu .submenu {
-    position: absolute;
-    top: 0;
-    left: 100%;
-    background-color: #ffffff;
-    display: none;
-    flex-direction: column;
-    min-width: 180px;
-    padding: 10px 0;
-    margin: 8px;
-    box-shadow: 10px 0 20px rgba(0,0,0,0.05);
-    border-left: 4px solid #ffffff;
-    border: 1px solid #959494;
+/* =========================================
+   NAVBAR
+========================================= */
+
+.navbar{
+    display:flex;
+    align-items:center;
+    gap:25px;
 }
 
-.dropdown-submenu:hover > .submenu {
-    display: flex;
+/* =========================================
+   MENU PRINCIPAL
+========================================= */
+
+.menu{
+    list-style:none;
+    display:flex;
+    gap:25px;
+    margin:0;
+    padding:0;
 }
 
-/* Items dentro del combo */
-.dropdown-menu li {
-    width: 100%;
+.menu li{
+    position:relative;
 }
 
-.dropdown-menu li a {
-    color: #444 !important;
-    padding: 12px 20px !important;
-    font-size: 14px;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 1px solid #f9f9f9;
+.menu a{
+    text-decoration:none;
+    color:#626161;
+    font-weight:500;
+    font-size:15px;
+    padding:5px 0;
+    position:relative;
+    transition:0.3s;
 }
 
-.dropdown-menu li a:hover {
-    background-color: #f8f9fa;
-    color: #E63946 !important;
-    padding-left: 25px !important;
+.menu a:hover{
+    color:#df2d2d;
 }
+
+/* =========================================
+   SUBMENUS
+========================================= */
+
+.submenu{
+    display:none;
+    position:absolute;
+    top: 25px;
+    left:0;
+    background:#dfdfdf;
+    list-style:none;
+    padding:10px 0;
+    min-width:150px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border-radius:2px;
+}
+
+.submenu li{
+    padding:8px 20px;
+}
+
+.submenu li a{
+    color:#333;
+    font-size:14px;
+}
+
+.dropdown:hover .submenu{
+    display:block;
+}
+
+.dropdown > a::after{
+    content:" ▾";
+    font-size:11px;
+    margin-left:6px;
+}
+
+/* =========================================
+   SUB SUBMENU
+========================================= */
+
+.submenu2{
+    display:none;
+    position:absolute;
+    top:0;
+    left:100%;
+    background:#dfdfdf;
+    list-style:none;
+    padding:10px 0;
+    min-width:200px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    border-radius:2px;
+}
+
+.dropdown-sub:hover .submenu2{
+    display:block;
+}
+
+/* =========================================
+   BOTON INTRANET
+========================================= */
+
+.btn-intranet{
+    background: linear-gradient(135deg, #e63946, #d62828);
+    color:#fff;
+    padding:10px 22px;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    display:inline-block;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    transition:all 0.3s ease;
+}
+
+/* HOVER */
+
+.btn-intranet:hover{
+    transform:translateY(-2px);
+    box-shadow:0 6px 16px rgba(0,0,0,0.2);
+    background: linear-gradient(135deg, #d62828, #b71c1c);
+}
+
+.btn-intranet i{
+    margin-right:6px;
+    font-size:14px;
+}
+
+/* =========================================
+   MENU MOVIL
+========================================= */
+
+.menu-toggle{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media(max-width:1000px){
+
+.menu{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:white;
+    flex-direction:column;
+    gap:15px;
+    padding:20px;
+    display:none;
+}
+
+.menu.active{
+    display:flex;
+}
+
+.menu li{
+    width:100%;
+}
+
+.submenu,
+.submenu2{
+    position:static;
+    box-shadow:none;
+}
+
+.menu-toggle{
+    display:block;
+}
+
+.btn-intranet{
+    display:none;
+}
+
+}
+
 
 /* --- LETRAS DE BIENVENIDOS (ESTILO POPPINS) --- */
 .content {
@@ -207,7 +328,7 @@ body {
 /* "Institución Educativa Emblematica" */
 .content h1 {
     font-size: clamp(28px, 4.5vw, 55px); /* Tamaño más controlado */
-    font-weight: 200;
+    font-weight: 550;
     line-height: 1.2;
     margin-bottom: 10px;
     text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
@@ -216,7 +337,7 @@ body {
 /* "REPÚBLICA ARGENTINA" */
 .content .sub-title {
     font-size: clamp(20px, 3vw, 38px); 
-    font-weight: 600; /* Grosor intermedio */
+    font-weight: 650; /* Grosor intermedio */
     text-transform: uppercase;
     letter-spacing: 2px;
     display: block;
@@ -268,7 +389,7 @@ body {
 /* --- SECCIÓN SOBRE NOSOTROS --- */
 .sobre-nosotros {
     padding: 80px 15%;
-    background-color: #f0f9ff;
+    background-color: #c5daf2;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -1246,7 +1367,7 @@ font-size:1.3rem;
 }
 
 .contenido-lema h2 {
-    font-size: 25px;
+    font-size: 30px;
     font-family: 'Poppins', serif;
     margin-bottom: 15px;
     font-weight: 300;
@@ -1277,7 +1398,7 @@ font-size:1.3rem;
 
 /* --- FOOTER --- */
 .footer {
-    background-color: #0a1f44;
+    background-color: #071730;
     color: #ffffff;
     padding: 60px 0 20px;
     font-family: 'Roboto', sans-serif;
