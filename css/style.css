@@ -386,152 +386,83 @@ body {
     flex-wrap: wrap; /* Importante para el responsive */
 }
 
-/* --- SECCIÓN SOBRE NOSOTROS --- */
-.sobre-nosotros {
-    padding: 80px 15%;
-    background-color: #c5daf2;
+.about {
+    padding: 80px 10%;
+    background: #f8f9fa;
     font-family: 'Poppins', sans-serif;
 }
 
-.nosotros-container {
-    max-width: 1200px;
-    margin: 0 auto;
+ /* Sobre nosotros */
+.about-container {
     display: flex;
     align-items: center;
-    gap: 50px;
-    flex-wrap: wrap; /* Para que en móvil se ponga uno abajo del otro */
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
-.nosotros {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: center;
-    padding: 80px 8%;
+/* TEXTO */
+.about-text {
+    flex: 1;
 }
 
-/* GALERÍA */
-.nosotros-imagen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.about-text h2 {
+    font-size: 32px;
+    color: #000000;
+    margin-bottom: 20px;
 }
 
-.nosotros-imagen img {
+.about-text p {
+    color: #555;
+    line-height: 1.6;
+}
+
+/* IMAGEN */
+.about-img {
+    flex: 1;
+}
+
+.about-img img {
     width: 100%;
-    max-width: 420px;   /* controla el tamaño máximo */
-    height: auto;
-    border-radius: 5px;
+    border-radius: 3px;
     object-fit: cover;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
-.experiencia-badge {
-    position: absolute;
-    bottom: -20px;
-    right: -10px;
-    background: #E63946;
-    color: #fff;
-    padding: 20px;
+/* CARDS MISIÓN Y VISIÓN */
+.about-cards {
+    margin-top: 50px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card-about {
+    flex: 1;
+    background: white;
+    padding: 25px;
     border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.experiencia-badge span {
-    font-size: 28px;
-    font-weight: 800;
-    display: block;
-}
-
-.experiencia-badge p {
-    font-size: 12px;
-    text-transform: uppercase;
-}
-
-/* Texto */
-.nosotros-text {
-    flex: 1.2;
-    min-width: 300px;
-}
-
-.nosotros-text h5 {
-    color: #333;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 14px;
+.card-about h3 {
+    color: #313030;
     margin-bottom: 10px;
 }
 
-.nosotros-text h2 {
-    font-size: clamp(24px, 3vw, 36px);
-    color: #000000;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    font-weight: 700;
+.card-about p {
+    color: #555;
+    line-height: 1.5;
 }
-
-.nosotros-text p {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 25px;
-    font-size: 15px;
-}
-
-/* Lista de puntos */
-.nosotros-puntos {
-    margin-bottom: 30px;
-}
-
-.punto-item {
+.card-about h3 {
     display: flex;
     align-items: center;
     gap: 10px;
-    margin-bottom: 12px;
+    color: #434343;
 }
-
+/* ICONO */
 .punto-item i {
-    color: #1877F2;
+    color: #48a628;
     font-size: 18px;
 }
-
-.punto-item p {
-    margin-bottom: 0;
-    font-weight: 500;
-    color: #444;
-}
-
-/* Botón Conoce Más */
-.btn-leer-mas {
-    display: inline-block;
-    padding: 12px 30px;
-    background: #E63946;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.btn-leer-mas:hover {
-    background: #333;
-    transform: translateY(-3px);
-}
-
-/* --- RESPONSIVE --- */
-@media (max-width: 992px) {
-    .nosotros-container {
-        flex-direction: column;
-        text-align: center;
-    }
-    .punto-item {
-        justify-content: center;
-    }
-    .nosotros-img {
-        margin-bottom: 40px;
-    }
-}
-
 /* =========================================
         INSTALACIONES
 ========================================= */
@@ -701,70 +632,72 @@ body {
 /* =========================================
         ACTIVIDADES
 ========================================= */
-
-.actividades-section {
-    padding: 70px 10%;
-    background: #c5daf2; /* tono similar al de tu imagen */
+.reconocimientos {
+    padding: 80px 10%;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
 }
-
-.actividades-title {
-    font-family: 'Poppins', sans-serif;
-    font-size: 28px;
-    font-weight: 600;
-    margin-bottom: 40px;
-    text-align: center; /* Esto lo mueve justo al centro de la pantalla */
-    color: #333;    /* Opcional: El azul institucional que te recomendé */
+.reconocimientos {
+   background: #ede4c8;
 }
 
-.actividades-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 25px;
-}
-
-.actividad-card {
-    background: #fff;
-    padding: 15px 20px;
-    border-radius: 14px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-.actividad-card i {
+.reconocimientos h2 {
     font-size: 32px;
-    margin-bottom: 15px;
+    color: #333;
+    margin-bottom: 25px;
 }
 
-/* Colores personalizados como tu imagen */
-.actividad-card:nth-child(1) i { color: #2f6df6; }
-.actividad-card:nth-child(2) i { color: #4caf50; }
-.actividad-card:nth-child(3) i { color: #7e57c2; }
-.actividad-card:nth-child(4) i { color: #e53935; }
-.actividad-card:nth-child(5) i { color: #d32f79; }
-.actividad-card:nth-child(6) i { color: #d32f79; }
-
-.actividad-card p {
-    font-weight: 500;
-    margin: 0;
+/* GRID */
+.reco-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
 }
 
-.actividad-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-}
-@media (max-width: 992px) {
-    .actividades-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
+/* CARD */
+.reco-card {
+    position: relative;
+    height: 220px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-@media (max-width: 600px) {
-    .actividades-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+/* IMAGEN */
+.reco-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
+
+/* OVERLAY */
+.reco-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.295);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+/* ICONO */
+.reco-overlay i {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+/* TEXTO */
+.reco-overlay h3 {
+    font-size: 18px;
+}
+
+/* HOVER */
+.reco-card:hover .reco-overlay {
+    background: rgba(0,0,0,0.7);
+}
+
 
 /* --- ESTILO DE LA TARJETA --- */
 .nivel-card {
@@ -827,7 +760,7 @@ body {
 }
 
 .amarillo { background: #ffea00; }
-.verde { background: #2fff00; }
+.verde { background: #ff8800; }
 .naranja { background: #0080ff; }
 
 /* --- RESPONSIVE --- */
@@ -942,76 +875,72 @@ body {
 
     .tab-btn {
         flex: 1 1 auto;
-        padding: 12px 15px;
+        padding: 10px 15px;
         font-size: 12px;
     }
 }
 
+/* =========================================
+        GALERÍA
+========================================= */
+.gallery {
+    padding: 60px 10%;
+    font-family: 'Poppins', sans-serif;
+}
 
-.galeria-header {
+.gallery h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #1B4F72;
     text-align: center;
     margin-bottom: 40px;
+    position: relative;
 }
 
-.galeria-header .tag {
-    color: #189ae5;
-    font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-.galeria-header h2 {
-    color: #001f3f;
-    font-size: 32px;
-    font-weight: 700;
-    margin-top: 5px;
-}
-
-/* --- CONTENEDOR DEL DESLIZAMIENTO --- */
-.galeria-header {
-    text-align: center;
-    margin-bottom: 50px;
-    padding: 0 20px;
-}
-
-.tag-line {
+.gallery h2::after {
+    content: "";
     display: block;
-    color: #010a10; /* El azul claro que usamos */
-    font-size: 14px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-bottom: 10px;
-}
-
-.galeria-header h1 {
-    color: #001f3f; /* Azul marino profundo */
-    font-size: 38px;
-    font-weight: 300; /* Letra delgada para "Nuestros Espacios de" */
-    margin: 0;
-}
-
-.galeria-header h1 span {
-    font-weight: 800; /* Letra bien gruesa para "Aprendizaje" */
-    color: #001f3f;
-}
-
-.header-separator {
     width: 80px;
     height: 4px;
-    background: #e3342f; /* El rojo de la agenda para dar contraste */
-    margin: 15px auto 0;
-    border-radius: 2px;
+    background: #2874A6;
+    margin: 10px auto 0;
+    border-radius: 1px;
 }
 
-/* Ajuste responsive para el título */
-@media (max-width: 768px) {
-    .galeria-header h1 {
-        font-size: 28px;
+/* CONTENEDOR */
+.slider {
+    overflow: hidden;
+}
+
+/* FILA QUE SE MUEVE */
+.slide-track {
+    display: flex;
+    width: calc(250px * 10); /* cantidad de imágenes */
+    animation: scroll 20s linear infinite;
+}
+
+/* IMÁGENES RECTANGULARES */
+.slide-track img {
+    width: 350px;
+    height:200px;
+    object-fit: cover;
+    margin-right: 3px;
+    border-radius: 1px;
+}
+
+.slide-track img:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+}
+
+/* ANIMACIÓN */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
     }
-    .tag-line {
-        font-size: 12px;
+    100% {
+        transform: translateX(-30%);
     }
 }
 /* ===============================
@@ -1235,7 +1164,6 @@ font-size:2rem;
 }
 
 }
-
 /* ===============================
    CELULAR
 ================================ */
@@ -1291,7 +1219,6 @@ height:260px;
 }
 
 }
-
 /* ===============================
    CELULAR PEQUEÑO
 ================================ */
@@ -1328,7 +1255,6 @@ font-size:1.3rem;
 }
 
 }
-
 /* =============================
    SECCIÓN LEMA INSTITUCIONAL
 ============================= */
@@ -1398,7 +1324,7 @@ font-size:1.3rem;
 
 /* --- FOOTER --- */
 .footer {
-    background-color: #071730;
+    background-color: #02245a;
     color: #ffffff;
     padding: 60px 0 20px;
     font-family: 'Roboto', sans-serif;
@@ -1498,8 +1424,9 @@ footer a {
 }
 
 footer a:hover {
-    color: #1877F2;        /* tu azul al pasar el mouse */
+    color: #009dff;        /* tu azul al pasar el mouse */
 }
+
 
 /* Copyright */
 .footer-bottom {

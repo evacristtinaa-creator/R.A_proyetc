@@ -1,0 +1,640 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Lora:ital,wght@0,600;1,400&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --nav-bg: #1a3a5c;
+    --accent: #e8a020;
+    --accent2: #2e9e75;
+    --card-bg: var(--color-background-primary);
+    --page-bg: var(--color-background-tertiary);
+    --text: var(--color-text-primary);
+    --muted: var(--color-text-secondary);
+    --border: var(--color-border-tertiary);
+    --radius: var(--border-radius-lg);
+  }
+  body { font-family: 'Nunito', sans-serif; background: var(--page-bg); color: var(--text); }
+  .app { display: flex; flex-direction: column; min-height: 100vh; }
+
+  /* NAV */
+  nav {
+    background: var(--nav-bg);
+    padding: 0 1.5rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 56px;
+    position: sticky; top: 0; z-index: 100;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 10px; color: white; font-size: 16px; font-weight: 700; }
+  .nav-brand span { color: var(--accent); }
+  .nav-links { display: flex; gap: 4px; }
+  .nav-links a {
+    color: rgba(255,255,255,0.75); font-size: 13px; padding: 6px 12px;
+    border-radius: 6px; cursor: pointer; text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .nav-links a:hover, .nav-links a.active { background: rgba(255,255,255,0.12); color: white; }
+  .nav-right { display: flex; align-items: center; gap: 10px; }
+  .avatar { width: 34px; height: 34px; border-radius: 50%; background: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; color: #1a3a5c; }
+  .notif-btn { background: rgba(255,255,255,0.1); border: none; color: white; cursor: pointer; width: 34px; height: 34px; border-radius: 50%; font-size: 16px; display: flex; align-items: center; justify-content: center; position: relative; }
+  .notif-dot { position: absolute; top: 6px; right: 6px; width: 8px; height: 8px; border-radius: 50%; background: #e84040; border: 1.5px solid var(--nav-bg); }
+
+  /* LAYOUT */
+  .main { display: flex; flex: 1; }
+  .sidebar { width: 200px; background: var(--card-bg); border-right: 0.5px solid var(--border); padding: 1.25rem 0.75rem; display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; }
+  .sidebar-item { display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; font-size: 13px; cursor: pointer; color: var(--muted); transition: background 0.12s, color 0.12s; }
+  .sidebar-item:hover { background: var(--color-background-secondary); color: var(--text); }
+  .sidebar-item.active { background: #e8f4ff; color: #1a3a5c; font-weight: 600; }
+  .sidebar-icon { font-size: 16px; width: 20px; text-align: center; }
+  .sidebar-sep { height: 0.5px; background: var(--border); margin: 8px 0; }
+  .sidebar-label { font-size: 11px; color: var(--muted); padding: 4px 10px; letter-spacing: 0.05em; text-transform: uppercase; }
+
+  /* CONTENT */
+  .content { flex: 1; padding: 1.5rem; overflow-y: auto; display: none; }
+  .content.active { display: block; }
+
+  /* DASHBOARD */
+  .welcome-banner {
+    background: var(--nav-bg);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    color: white;
+    margin-bottom: 1.25rem;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .welcome-banner h2 { font-family: 'Lora', serif; font-size: 18px; font-weight: 600; margin-bottom: 4px; }
+  .welcome-banner p { font-size: 13px; opacity: 0.75; }
+  .banner-badge { background: var(--accent); color: #1a3a5c; font-size: 12px; font-weight: 700; padding: 6px 14px; border-radius: 20px; white-space: nowrap; }
+
+  .stats-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 10px; margin-bottom: 1.25rem; }
+  .stat-card { background: var(--card-bg); border: 0.5px solid var(--border); border-radius: var(--border-radius-md); padding: 0.875rem 1rem; }
+  .stat-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 4px; }
+  .stat-val { font-size: 22px; font-weight: 700; }
+  .stat-sub { font-size: 11px; margin-top: 2px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+  .card { background: var(--card-bg); border: 0.5px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; }
+  .card-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.875rem; }
+  .card-title { font-size: 14px; font-weight: 600; }
+  .card-link { font-size: 12px; color: #185FA5; cursor: pointer; }
+
+  .task-item { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-bottom: 0.5px solid var(--border); }
+  .task-item:last-child { border-bottom: none; }
+  .task-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+  .task-name { font-size: 13px; flex: 1; }
+  .task-date { font-size: 11px; color: var(--muted); }
+  .badge { font-size: 11px; padding: 2px 8px; border-radius: 20px; font-weight: 600; }
+  .badge-warn { background: #FAEEDA; color: #854F0B; }
+  .badge-danger { background: #FCEBEB; color: #A32D2D; }
+  .badge-ok { background: #EAF3DE; color: #3B6D11; }
+  .badge-info { background: #E6F1FB; color: #185FA5; }
+
+  /* CURSOS */
+  .courses-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; }
+  .course-card { background: var(--card-bg); border: 0.5px solid var(--border); border-radius: var(--radius); overflow: hidden; cursor: pointer; transition: box-shadow 0.15s; }
+  .course-card:hover { border-color: var(--color-border-secondary); }
+  .course-header { height: 80px; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+  .course-body { padding: 0.875rem 1rem; }
+  .course-name { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+  .course-teacher { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+  .prog-bar-wrap { background: var(--color-background-secondary); border-radius: 10px; height: 5px; overflow: hidden; }
+  .prog-bar { height: 5px; border-radius: 10px; background: var(--accent2); }
+  .prog-label { font-size: 11px; color: var(--muted); margin-top: 4px; }
+  .course-footer { padding: 0.75rem 1rem; border-top: 0.5px solid var(--border); display: flex; gap: 8px; }
+  .btn-sm { font-size: 12px; padding: 5px 12px; border-radius: 6px; border: 0.5px solid var(--border); cursor: pointer; background: var(--color-background-secondary); color: var(--text); font-family: 'Nunito', sans-serif; }
+  .btn-sm.primary { background: var(--nav-bg); color: white; border-color: var(--nav-bg); }
+
+  /* AULA (detalle curso) */
+  .aula-layout { display: grid; grid-template-columns: 1fr 280px; gap: 1rem; }
+  .module-list { display: flex; flex-direction: column; gap: 8px; }
+  .module { background: var(--card-bg); border: 0.5px solid var(--border); border-radius: var(--border-radius-md); overflow: hidden; }
+  .module-head { display: flex; align-items: center; gap: 10px; padding: 10px 14px; cursor: pointer; font-size: 13px; font-weight: 600; }
+  .module-head-icon { font-size: 14px; }
+  .module-head-chevron { margin-left: auto; font-size: 12px; color: var(--muted); transition: transform 0.2s; }
+  .module.open .module-head-chevron { transform: rotate(180deg); }
+  .module-body { display: none; border-top: 0.5px solid var(--border); }
+  .module.open .module-body { display: block; }
+  .res-item { display: flex; align-items: center; gap: 10px; padding: 8px 14px; font-size: 13px; border-bottom: 0.5px solid var(--border); cursor: pointer; }
+  .res-item:last-child { border-bottom: none; }
+  .res-item:hover { background: var(--color-background-secondary); }
+  .res-icon { font-size: 15px; width: 20px; text-align: center; }
+  .res-name { flex: 1; }
+  .res-type { font-size: 11px; color: var(--muted); }
+
+  .aula-sidebar { display: flex; flex-direction: column; gap: 10px; }
+
+  /* TAREAS */
+  .tarea-list { display: flex; flex-direction: column; gap: 10px; }
+  .tarea-card { background: var(--card-bg); border: 0.5px solid var(--border); border-radius: var(--border-radius-md); padding: 1rem 1.25rem; display: flex; gap: 1rem; align-items: flex-start; }
+  .tarea-indicator { width: 4px; height: 100%; border-radius: 2px; min-height: 50px; flex-shrink: 0; }
+  .tarea-info { flex: 1; }
+  .tarea-nombre { font-size: 14px; font-weight: 600; margin-bottom: 2px; }
+  .tarea-curso { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .tarea-meta { display: flex; gap: 8px; align-items: center; }
+  .tarea-actions { display: flex; gap: 6px; }
+
+  /* CALIFICACIONES */
+  .grado-table { width: 100%; font-size: 13px; border-collapse: collapse; }
+  .grado-table th { text-align: left; padding: 8px 12px; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); border-bottom: 0.5px solid var(--border); }
+  .grado-table td { padding: 10px 12px; border-bottom: 0.5px solid var(--border); }
+  .grado-table tr:last-child td { border-bottom: none; }
+  .grade-circle { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; }
+
+  /* MENSAJES */
+  .msg-layout { display: grid; grid-template-columns: 240px 1fr; gap: 1rem; height: 500px; }
+  .msg-list { background: var(--card-bg); border: 0.5px solid var(--border); border-radius: var(--radius); overflow-y: auto; }
+  .msg-item { padding: 10px 14px; border-bottom: 0.5px solid var(--border); cursor: pointer; display: flex; gap: 10px; align-items: flex-start; }
+  .msg-item:hover, .msg-item.active { background: var(--color-background-secondary); }
+  .msg-avatar { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 12px; flex-shrink: 0; }
+  .msg-info { flex: 1; min-width: 0; }
+  .msg-from { font-size: 13px; font-weight: 600; }
+  .msg-preview { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .msg-time { font-size: 11px; color: var(--muted); flex-shrink: 0; }
+  .chat-area { background: var(--card-bg); border: 0.5px solid var(--border); border-radius: var(--radius); display: flex; flex-direction: column; }
+  .chat-head { padding: 12px 16px; border-bottom: 0.5px solid var(--border); font-weight: 600; font-size: 14px; display: flex; align-items: center; gap: 10px; }
+  .chat-msgs { flex: 1; padding: 1rem; display: flex; flex-direction: column; gap: 10px; overflow-y: auto; }
+  .bubble { max-width: 70%; padding: 8px 12px; border-radius: 12px; font-size: 13px; line-height: 1.5; }
+  .bubble.them { background: var(--color-background-secondary); border-radius: 12px 12px 12px 2px; }
+  .bubble.me { background: var(--nav-bg); color: white; border-radius: 12px 12px 2px 12px; align-self: flex-end; }
+  .chat-input { padding: 10px 14px; border-top: 0.5px solid var(--border); display: flex; gap: 8px; }
+  .chat-input input { flex: 1; padding: 7px 12px; border: 0.5px solid var(--border); border-radius: 8px; font-size: 13px; background: var(--color-background-secondary); color: var(--text); font-family: 'Nunito', sans-serif; }
+  .btn-send { background: var(--nav-bg); color: white; border: none; border-radius: 8px; padding: 7px 16px; cursor: pointer; font-size: 13px; font-family: 'Nunito', sans-serif; }
+
+  .section-title { font-size: 16px; font-weight: 700; margin-bottom: 1rem; }
+</style>
+
+<div class="app">
+  <nav>
+    <div class="nav-brand">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="6" fill="#e8a020"/><path d="M6 20L14 8l8 12H6z" fill="#1a3a5c"/></svg>
+      Colegio <span>San Marcos</span>
+    </div>
+    <div class="nav-links">
+      <a class="active" onclick="showSection('dashboard',this)">Inicio</a>
+      <a onclick="showSection('cursos',this)">Mis Cursos</a>
+      <a onclick="showSection('tareas',this)">Tareas</a>
+      <a onclick="showSection('calificaciones',this)">Calificaciones</a>
+      <a onclick="showSection('mensajes',this)">Mensajes</a>
+    </div>
+    <div class="nav-right">
+      <button class="notif-btn">🔔<span class="notif-dot"></span></button>
+      <div class="avatar">EP</div>
+    </div>
+  </nav>
+
+  <div class="main">
+    <aside class="sidebar">
+      <div class="sidebar-label">Principal</div>
+      <div class="sidebar-item active" onclick="showSection('dashboard',null,this)">
+        <span class="sidebar-icon">🏠</span> Dashboard
+      </div>
+      <div class="sidebar-item" onclick="showSection('cursos',null,this)">
+        <span class="sidebar-icon">📚</span> Cursos
+      </div>
+      <div class="sidebar-item" onclick="showSection('tareas',null,this)">
+        <span class="sidebar-icon">📝</span> Tareas
+      </div>
+      <div class="sidebar-item" onclick="showSection('calificaciones',null,this)">
+        <span class="sidebar-icon">🎯</span> Notas
+      </div>
+      <div class="sidebar-sep"></div>
+      <div class="sidebar-label">Comunicación</div>
+      <div class="sidebar-item" onclick="showSection('mensajes',null,this)">
+        <span class="sidebar-icon">💬</span> Mensajes
+      </div>
+      <div class="sidebar-item">
+        <span class="sidebar-icon">📅</span> Calendario
+      </div>
+      <div class="sidebar-sep"></div>
+      <div class="sidebar-label">Cuenta</div>
+      <div class="sidebar-item">
+        <span class="sidebar-icon">⚙️</span> Configuración
+      </div>
+    </aside>
+
+    <!-- DASHBOARD -->
+    <section class="content active" id="dashboard">
+      <div class="welcome-banner">
+        <div>
+          <h2>¡Buen día, Estela! 👋</h2>
+          <p>Tienes 3 tareas pendientes esta semana</p>
+        </div>
+        <span class="banner-badge">3° Secundaria — 2025</span>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Cursos activos</div>
+          <div class="stat-val" style="color:#1a3a5c">6</div>
+          <div class="stat-sub" style="color:var(--muted)">Este bimestre</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Tareas pendientes</div>
+          <div class="stat-val" style="color:#A32D2D">3</div>
+          <div class="stat-sub" style="color:#A32D2D">2 vencen esta semana</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Promedio general</div>
+          <div class="stat-val" style="color:#3B6D11">17.2</div>
+          <div class="stat-sub" style="color:#3B6D11">+0.4 vs bimestre anterior</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Asistencia</div>
+          <div class="stat-val" style="color:#185FA5">94%</div>
+          <div class="stat-sub" style="color:var(--muted)">2 inasistencias</div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Próximas tareas</span>
+            <span class="card-link" onclick="showSection('tareas')">Ver todas →</span>
+          </div>
+          <div class="task-item">
+            <span class="task-dot" style="background:#e84040"></span>
+            <span class="task-name">Ensayo — Revolución Industrial</span>
+            <span class="badge badge-danger">Mañana</span>
+          </div>
+          <div class="task-item">
+            <span class="task-dot" style="background:#e8a020"></span>
+            <span class="task-name">Ejercicios cap. 8 — Matemática</span>
+            <span class="badge badge-warn">Vie 21</span>
+          </div>
+          <div class="task-item">
+            <span class="task-dot" style="background:#2e9e75"></span>
+            <span class="task-name">Lab. células — Biología</span>
+            <span class="badge badge-ok">Lun 24</span>
+          </div>
+          <div class="task-item">
+            <span class="task-dot" style="background:#185FA5"></span>
+            <span class="task-name">Reading comprehension — Inglés</span>
+            <span class="badge badge-info">Mar 25</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head">
+            <span class="card-title">Últimas calificaciones</span>
+            <span class="card-link" onclick="showSection('calificaciones')">Ver notas →</span>
+          </div>
+          <div class="task-item">
+            <span class="task-dot" style="background:#2e9e75"></span>
+            <span class="task-name">Examen parcial — Historia</span>
+            <span class="badge badge-ok">18 / 20</span>
+          </div>
+          <div class="task-item">
+            <span class="task-dot" style="background:#2e9e75"></span>
+            <span class="task-name">Práctica lab — Química</span>
+            <span class="badge badge-ok">17 / 20</span>
+          </div>
+          <div class="task-item">
+            <span class="task-dot" style="background:#e8a020"></span>
+            <span class="task-name">Quiz gramática — Inglés</span>
+            <span class="badge badge-warn">14 / 20</span>
+          </div>
+          <div class="task-item">
+            <span class="task-dot" style="background:#2e9e75"></span>
+            <span class="task-name">Tarea — Matemática</span>
+            <span class="badge badge-ok">19 / 20</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CURSOS -->
+    <section class="content" id="cursos">
+      <div class="section-title">Mis cursos</div>
+      <div class="courses-grid">
+        <div class="course-card" onclick="showSection('aula')">
+          <div class="course-header" style="background:#E6F1FB">📐</div>
+          <div class="course-body">
+            <div class="course-name">Matemática</div>
+            <div class="course-teacher">Prof. Roberto Quispe</div>
+            <div class="prog-bar-wrap"><div class="prog-bar" style="width:72%"></div></div>
+            <div class="prog-label">72% completado</div>
+          </div>
+          <div class="course-footer"><button class="btn-sm primary">Entrar al aula</button><button class="btn-sm">Tareas</button></div>
+        </div>
+        <div class="course-card" onclick="showSection('aula')">
+          <div class="course-header" style="background:#EAF3DE">🌿</div>
+          <div class="course-body">
+            <div class="course-name">Biología</div>
+            <div class="course-teacher">Prof. Ana Flores</div>
+            <div class="prog-bar-wrap"><div class="prog-bar" style="width:58%"></div></div>
+            <div class="prog-label">58% completado</div>
+          </div>
+          <div class="course-footer"><button class="btn-sm primary">Entrar al aula</button><button class="btn-sm">Tareas</button></div>
+        </div>
+        <div class="course-card" onclick="showSection('aula')">
+          <div class="course-header" style="background:#FAEEDA">⚗️</div>
+          <div class="course-body">
+            <div class="course-name">Química</div>
+            <div class="course-teacher">Prof. Luis Mendoza</div>
+            <div class="prog-bar-wrap"><div class="prog-bar" style="width:45%"></div></div>
+            <div class="prog-label">45% completado</div>
+          </div>
+          <div class="course-footer"><button class="btn-sm primary">Entrar al aula</button><button class="btn-sm">Tareas</button></div>
+        </div>
+        <div class="course-card" onclick="showSection('aula')">
+          <div class="course-header" style="background:#FBEAF0">📜</div>
+          <div class="course-body">
+            <div class="course-name">Historia</div>
+            <div class="course-teacher">Prof. Carmen Rivas</div>
+            <div class="prog-bar-wrap"><div class="prog-bar" style="width:80%"></div></div>
+            <div class="prog-label">80% completado</div>
+          </div>
+          <div class="course-footer"><button class="btn-sm primary">Entrar al aula</button><button class="btn-sm">Tareas</button></div>
+        </div>
+        <div class="course-card" onclick="showSection('aula')">
+          <div class="course-header" style="background:#E1F5EE">🌍</div>
+          <div class="course-body">
+            <div class="course-name">Inglés</div>
+            <div class="course-teacher">Prof. María Torres</div>
+            <div class="prog-bar-wrap"><div class="prog-bar" style="width:62%"></div></div>
+            <div class="prog-label">62% completado</div>
+          </div>
+          <div class="course-footer"><button class="btn-sm primary">Entrar al aula</button><button class="btn-sm">Tareas</button></div>
+        </div>
+        <div class="course-card" onclick="showSection('aula')">
+          <div class="course-header" style="background:#EEEDFE">💻</div>
+          <div class="course-body">
+            <div class="course-name">Computación</div>
+            <div class="course-teacher">Prof. Javier Salas</div>
+            <div class="prog-bar-wrap"><div class="prog-bar" style="width:90%"></div></div>
+            <div class="prog-label">90% completado</div>
+          </div>
+          <div class="course-footer"><button class="btn-sm primary">Entrar al aula</button><button class="btn-sm">Tareas</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AULA (detalle) -->
+    <section class="content" id="aula">
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem;">
+        <button class="btn-sm" onclick="showSection('cursos')">← Volver</button>
+        <span class="section-title" style="margin:0">📐 Matemática — Prof. Roberto Quispe</span>
+      </div>
+      <div class="aula-layout">
+        <div>
+          <div class="section-title" style="font-size:14px;margin-bottom:8px">Contenido del curso</div>
+          <div class="module-list">
+            <div class="module open">
+              <div class="module-head" onclick="toggleModule(this)">
+                <span class="module-head-icon">📖</span>
+                Unidad 1: Álgebra
+                <span class="module-head-chevron">▼</span>
+              </div>
+              <div class="module-body">
+                <div class="res-item"><span class="res-icon">🎥</span><span class="res-name">Introducción al álgebra</span><span class="res-type">Video · 15 min</span></div>
+                <div class="res-item"><span class="res-icon">📄</span><span class="res-name">Ficha de ejercicios N°1</span><span class="res-type">PDF</span></div>
+                <div class="res-item"><span class="res-icon">📝</span><span class="res-name">Tarea: Ecuaciones lineales</span><span class="res-type">Entrega</span></div>
+              </div>
+            </div>
+            <div class="module">
+              <div class="module-head" onclick="toggleModule(this)">
+                <span class="module-head-icon">📖</span>
+                Unidad 2: Geometría
+                <span class="module-head-chevron">▼</span>
+              </div>
+              <div class="module-body">
+                <div class="res-item"><span class="res-icon">🎥</span><span class="res-name">Teorema de Pitágoras</span><span class="res-type">Video · 22 min</span></div>
+                <div class="res-item"><span class="res-icon">📄</span><span class="res-name">Guía de estudio geometría</span><span class="res-type">PDF</span></div>
+                <div class="res-item"><span class="res-icon">📊</span><span class="res-name">Evaluación práctica</span><span class="res-type">Quiz</span></div>
+              </div>
+            </div>
+            <div class="module">
+              <div class="module-head" onclick="toggleModule(this)">
+                <span class="module-head-icon">📖</span>
+                Unidad 3: Estadística
+                <span class="module-head-chevron">▼</span>
+              </div>
+              <div class="module-body">
+                <div class="res-item"><span class="res-icon">🎥</span><span class="res-name">Probabilidad básica</span><span class="res-type">Video · 18 min</span></div>
+                <div class="res-item"><span class="res-icon">📄</span><span class="res-name">Ejercicios estadística</span><span class="res-type">PDF</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="aula-sidebar">
+          <div class="card">
+            <div class="card-head"><span class="card-title">Tu progreso</span></div>
+            <div style="text-align:center;padding:10px 0">
+              <div style="font-size:32px;font-weight:700;color:#2e9e75">72%</div>
+              <div style="font-size:12px;color:var(--muted)">8 de 11 temas completados</div>
+            </div>
+            <div class="prog-bar-wrap"><div class="prog-bar" style="width:72%"></div></div>
+          </div>
+          <div class="card">
+            <div class="card-head"><span class="card-title">Anuncios</span></div>
+            <div style="font-size:13px;color:var(--muted);line-height:1.5">
+              <div style="margin-bottom:8px;padding-bottom:8px;border-bottom:0.5px solid var(--border)"><strong style="color:var(--text)">Examen parcial</strong><br>Jueves 24 de abril, 8:00am. Temas: Álgebra y Geometría.</div>
+              <div><strong style="color:var(--text)">Material adicional</strong><br>Se publicó nuevo video de repaso en Unidad 2.</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-head"><span class="card-title">Mis calificaciones</span></div>
+            <div class="task-item"><span class="task-name" style="font-size:12px">Tarea 1 — Álgebra</span><span class="badge badge-ok">18/20</span></div>
+            <div class="task-item"><span class="task-name" style="font-size:12px">Quiz Geometría</span><span class="badge badge-ok">16/20</span></div>
+            <div class="task-item"><span class="task-name" style="font-size:12px">Tarea 2 — Estadística</span><span class="badge badge-warn">Pendiente</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAREAS -->
+    <section class="content" id="tareas">
+      <div class="section-title">Mis tareas</div>
+      <div style="display:flex;gap:8px;margin-bottom:1rem;">
+        <button class="btn-sm primary">Todas</button>
+        <button class="btn-sm">Pendientes</button>
+        <button class="btn-sm">Entregadas</button>
+      </div>
+      <div class="tarea-list">
+        <div class="tarea-card">
+          <div class="tarea-indicator" style="background:#e84040"></div>
+          <div class="tarea-info">
+            <div class="tarea-nombre">Ensayo: Causas de la Revolución Industrial</div>
+            <div class="tarea-curso">Historia — Prof. Carmen Rivas</div>
+            <div class="tarea-meta"><span class="badge badge-danger">Vence mañana</span><span style="font-size:12px;color:var(--muted)">Mín. 400 palabras · PDF</span></div>
+          </div>
+          <div class="tarea-actions"><button class="btn-sm primary">Entregar</button></div>
+        </div>
+        <div class="tarea-card">
+          <div class="tarea-indicator" style="background:#e8a020"></div>
+          <div class="tarea-info">
+            <div class="tarea-nombre">Ejercicios capítulo 8 — Sistemas de ecuaciones</div>
+            <div class="tarea-curso">Matemática — Prof. Roberto Quispe</div>
+            <div class="tarea-meta"><span class="badge badge-warn">Vie 21 abr</span><span style="font-size:12px;color:var(--muted)">25 ejercicios · Foto/PDF</span></div>
+          </div>
+          <div class="tarea-actions"><button class="btn-sm primary">Entregar</button></div>
+        </div>
+        <div class="tarea-card">
+          <div class="tarea-indicator" style="background:#2e9e75"></div>
+          <div class="tarea-info">
+            <div class="tarea-nombre">Informe de laboratorio: Observación de células</div>
+            <div class="tarea-curso">Biología — Prof. Ana Flores</div>
+            <div class="tarea-meta"><span class="badge badge-ok">Lun 24 abr</span><span style="font-size:12px;color:var(--muted)">Informe + fotos</span></div>
+          </div>
+          <div class="tarea-actions"><button class="btn-sm primary">Entregar</button></div>
+        </div>
+        <div class="tarea-card" style="opacity:0.6">
+          <div class="tarea-indicator" style="background:#639922"></div>
+          <div class="tarea-info">
+            <div class="tarea-nombre">Reading comprehension: Unit 5</div>
+            <div class="tarea-curso">Inglés — Prof. María Torres</div>
+            <div class="tarea-meta"><span class="badge badge-ok">Entregada</span><span style="font-size:12px;color:var(--muted)">Nota: 16/20</span></div>
+          </div>
+          <div class="tarea-actions"><button class="btn-sm">Ver</button></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CALIFICACIONES -->
+    <section class="content" id="calificaciones">
+      <div class="section-title">Mis calificaciones</div>
+      <div class="card" style="margin-bottom:1rem">
+        <table class="grado-table">
+          <thead>
+            <tr><th>Curso</th><th>Docente</th><th>Bim. 1</th><th>Bim. 2</th><th>Bim. 3</th><th>Bim. 4</th><th>Promedio</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Matemática</strong></td><td style="color:var(--muted)">R. Quispe</td>
+              <td><span class="grade-circle" style="background:#EAF3DE;color:#3B6D11">17</span></td>
+              <td><span class="grade-circle" style="background:#EAF3DE;color:#3B6D11">18</span></td>
+              <td><span class="grade-circle" style="background:#E6F1FB;color:#185FA5">—</span></td>
+              <td><span class="grade-circle" style="background:#E6F1FB;color:#185FA5">—</span></td>
+              <td><strong>17.5</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Biología</strong></td><td style="color:var(--muted)">A. Flores</td>
+              <td><span class="grade-circle" style="background:#EAF3DE;color:#3B6D11">16</span></td>
+              <td><span class="grade-circle" style="background:#EAF3DE;color:#3B6D11">17</span></td>
+              <td><span class="grade-circle" style="background:#E6F1FB;color:#185FA5">—</span></td>
+              <td><span class="grade-circle" style="background:#E6F1FB;color:#185FA5">—</span></td>
+              <td><strong>16.5</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Historia</strong></td><td style="color:var(--muted)">C. Rivas</td>
+              <td><span class="grade-circle" style="background:#EAF3DE;color:#3B6D11">18</span></td>
+              <td><span class="grade-circle" style="background:#EAF3DE;color:#3B6D11">18</span></td>
+              <td><span class="grade-circle" style="background:#E6F1FB;color:#185FA5">—</span></td>
+              <td><span class="grade-circle" style="background:#E6F1FB;color:#185FA5">—</span></td>
+              <td><strong>18</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Química</strong></td><td style="color:var(--muted)">L. Mendoza</td>
+              <td><span class="grade-circle" style="background:#FAEEDA;color:#854F0B">14</span></td>
+              <td><span class="grade-circle" style="background:#EAF3DE;color:#3B6D11">16</span></td>
+              <td><span class="grade-circle" style="background:#E6F1FB;color:#185FA5">—</span></td>
+              <td><span class="grade-circle" style="background:#E6F1FB;color:#185FA5">—</span></td>
+              <td><strong>15</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Inglés</strong></td><td style="color:var(--muted)">M. Torres</td>
+              <td><span class="grade-circle" style="background:#FAEEDA;color:#854F0B">13</span></td>
+              <td><span class="grade-circle" style="background:#FAEEDA;color:#854F0B">15</span></td>
+              <td><span class="grade-circle" style="background:#E6F1FB;color:#185FA5">—</span></td>
+              <td><span class="grade-circle" style="background:#E6F1FB;color:#185FA5">—</span></td>
+              <td><strong>14</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Computación</strong></td><td style="color:var(--muted)">J. Salas</td>
+              <td><span class="grade-circle" style="background:#EAF3DE;color:#3B6D11">19</span></td>
+              <td><span class="grade-circle" style="background:#EAF3DE;color:#3B6D11">20</span></td>
+              <td><span class="grade-circle" style="background:#E6F1FB;color:#185FA5">—</span></td>
+              <td><span class="grade-circle" style="background:#E6F1FB;color:#185FA5">—</span></td>
+              <td><strong>19.5</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- MENSAJES -->
+    <section class="content" id="mensajes">
+      <div class="section-title">Mensajes</div>
+      <div class="msg-layout">
+        <div class="msg-list">
+          <div class="msg-item active">
+            <div class="msg-avatar" style="background:#E6F1FB;color:#185FA5">RQ</div>
+            <div class="msg-info">
+              <div class="msg-from">Prof. Quispe</div>
+              <div class="msg-preview">Recuerda la tarea del viernes...</div>
+            </div>
+            <span class="msg-time">10:24</span>
+          </div>
+          <div class="msg-item">
+            <div class="msg-avatar" style="background:#EAF3DE;color:#3B6D11">AF</div>
+            <div class="msg-info">
+              <div class="msg-from">Prof. Flores</div>
+              <div class="msg-preview">El informe de laboratorio...</div>
+            </div>
+            <span class="msg-time">Ayer</span>
+          </div>
+          <div class="msg-item">
+            <div class="msg-avatar" style="background:#FBEAF0;color:#993556">CR</div>
+            <div class="msg-info">
+              <div class="msg-from">Prof. Rivas</div>
+              <div class="msg-preview">Muy buen ensayo Estela, pero...</div>
+            </div>
+            <span class="msg-time">Lun</span>
+          </div>
+          <div class="msg-item">
+            <div class="msg-avatar" style="background:#FAEEDA;color:#854F0B">LM</div>
+            <div class="msg-info">
+              <div class="msg-from">Prof. Mendoza</div>
+              <div class="msg-preview">Material adicional publicado</div>
+            </div>
+            <span class="msg-time">Dom</span>
+          </div>
+        </div>
+        <div class="chat-area">
+          <div class="chat-head">
+            <div class="msg-avatar" style="background:#E6F1FB;color:#185FA5;width:28px;height:28px;font-size:11px">RQ</div>
+            Prof. Roberto Quispe — Matemática
+          </div>
+          <div class="chat-msgs">
+            <div class="bubble them">Hola Estela, recuerda que la tarea de sistemas de ecuaciones es para el viernes. Ya tienes el material en el aula virtual.</div>
+            <div class="bubble me">Buenas tardes profesor, gracias por recordarme. Tengo una duda sobre el ejercicio 12...</div>
+            <div class="bubble them">Claro, ¿cuál es la duda? Cuéntame.</div>
+          </div>
+          <div class="chat-input">
+            <input type="text" placeholder="Escribe un mensaje..." id="chatMsg" onkeydown="if(event.key==='Enter')sendMsg()" />
+            <button class="btn-send" onclick="sendMsg()">Enviar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+
+<script>
+function showSection(id, navEl, sideEl) {
+  document.querySelectorAll('.content').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  if (navEl) {
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    navEl.classList.add('active');
+  }
+  if (sideEl) {
+    document.querySelectorAll('.sidebar-item').forEach(s => s.classList.remove('active'));
+    sideEl.classList.add('active');
+  }
+}
+function toggleModule(head) {
+  head.parentElement.classList.toggle('open');
+}
+function sendMsg() {
+  const inp = document.getElementById('chatMsg');
+  const text = inp.value.trim();
+  if (!text) return;
+  const msgs = document.querySelector('.chat-msgs');
+  const b = document.createElement('div');
+  b.className = 'bubble me';
+  b.textContent = text;
+  msgs.appendChild(b);
+  msgs.scrollTop = msgs.scrollHeight;
+  inp.value = '';
+}
+</script>

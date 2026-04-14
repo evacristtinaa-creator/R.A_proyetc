@@ -34,7 +34,7 @@
 <header class="header">
 
     <div class="logo">
-        <img src="img/insignia.jpg" alt="Logo Colegio">
+        <img src="img/insignia.png" alt="Logo Colegio">
         <span>I.E. REPÚBLICA ARGENTINA</span>
     </div>
 
@@ -49,7 +49,7 @@
                     <li><a href="mision.html">Misión</a></li>
                     <li><a href="#">Visión</a></li>
                     <li><a href="#">Historia</a></li>
-                    <li><a href="#">Himno</a></li>
+                    <li><a href="pdfs/Himno.pdf">Himno</a></li>
                 </ul>
             </li>
 
@@ -74,13 +74,13 @@
                             <li><a href="#">Normas de convivencia</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Material Educativo</a></li>
+                    <li><a href="#">Guía de uso del Sistema</a></li>
 
                 </ul>
             </li>
 
             <li><a href="#servicios">SERVICIOS</a></li>
-            <li><a href="#nosotros">NOSOTROS</a></li>
+            <li><a href="#about-container">NOSOTROS</a></li>
             <li><a href="#contacto-premium">CONTACTO</a></li>
             <li><a href="#">Admisión 2026</a></li>
 
@@ -96,19 +96,16 @@
 
 </header>
 
-<!-- HERO -->
+<!-- =========================================
+                    HERO
+========================================= -->
 <div class="content">
-
 <h3>Bienvenido a la</h3>
-
 <h1>Institución Educativa Emblemática</h1>
-
 <h2 class="sub-title">
 República Argentina
 </h2>
-
 </div>
-
 </div>
 
 
@@ -152,122 +149,113 @@ República Argentina
 <!-- =========================================
                 SOBRE NOSOTROS
 ========================================= -->
-<section id="nosotros" class="sobre-nosotros">
+<section class="about" id="about-container">
+    <div class="about-container">
 
-    <div class="nosotros-container">
-
-        <div class="nosotros-imagen">
-            <img src="img/Nosotros.jpg" alt="Institución">
+        <!-- TEXTO -->
+        <div class="about-text">
+            <h2>Sobre Nosotros</h2>
+            <p>
+                Nosotros somos una institución educativa comprometida con brindar una formación integral basada en valores y calidad académica.
+                Contamos con un equipo docente capacitado que promueve el pensamiento crítico y el desarrollo personal.
+                Trabajamos unidos como comunidad educativa para contribuir al bien común y al desarrollo del país.
+            </p>
         </div>
 
-        <div class="nosotros-text">
-            <h2>Sobre Nosotros</h2>
-
-            <h3>Nuestra Historia</h3>
-            <p>
-                La I.E. República Argentina es una institución educativa emblemática
-                de Nuevo Chimbote comprometida con la excelencia pública...
-            </p>
-
-            <h3>Misión</h3>
-            <p>
-                Formar ciudadanos íntegros, competentes y con valores...
-            </p>
-
-            <h3>Visión</h3>
-            <p>
-                Ser una institución pública referente por su excelencia académica...
-            </p>
-
-            <a href="#" class="btn-leer-mas">Conoce más</a>
+        <!-- IMAGEN -->
+        <div class="about-img">
+            <img src="img/sobrenosotros.jpg" alt="Institución">
         </div>
 
     </div>
 
-</section>
+    <!-- MISIÓN Y VISIÓN -->
+    <div class="about-cards">
 
+        <div class="card-about">
+            <h3>
+                <span class="punto-item">
+                    <i class="fas fa-check-circle"></i>
+                </span>
+                Misión
+            </h3>
+            <p>
+                La Institución Educativa “República Argentina” ofrece educación en los tres niveles básicos con un equipo docente capacitado, brindando una formación integral basada en valores, identidad institucional y uso responsable de la tecnología. Busca formar estudiantes críticos, reflexivos y emprendedores, comprometidos con la sociedad y el desarrollo del país.
+            </p>
+        </div>
+
+        <div class="card-about">
+            <h3>
+                <span class="punto-item">
+                    <i class="fas fa-check-circle"></i>
+                </span>
+                Visión
+            </h3>
+            <p>
+                Al 2028, la I.E. “República Argentina” será una institución acreditada y referente en calidad educativa, que brindará formación integral con alto nivel académico. Formará estudiantes líderes, críticos y comprometidos con valores, fortaleciendo una comunidad educativa participativa y con sentido de pertenencia.
+            </p>
+        </div>
+
+    </div>
+</section>
 <!-- =========================================
         INSTALACIONES Y RECURSOS
 ========================================= -->
-<section id="instalaciones" class="instalaciones-section">
+<section class="gallery">
+    <h2>Nuestras Intalaciones</h2>
 
-    <h2 class="instalaciones-title">Instalaciones y Recursos</h2>
+    <div class="slider">
+        <div class="slide-track">
+            <img src="img/galery1.jpg">
+            <img src="img/galery2.jpg">
+            <img src="img/galery3.jpg">
+            <img src="img/galery4.jpg">
+            <img src="img/galery5.jpg">
+            <img src="img/galery6.jpg">
+            <img src="img/galery7.jpg">
+            <img src="img/galery8.jpg">
 
-    <div class="instalaciones-grid">
-
-        <div class="inst-item" data-galeria="aulas">
-            <img src="img/galery1.jpg" alt="">
-            <div class="inst-overlay">Aulas Equipadas</div>
-        </div>
-
-        <div class="inst-item" data-galeria="laboratorio">
-            <img src="img/galery3.jpg" alt="">
-            <div class="inst-overlay">Laboratorio</div>
-        </div>
-
-        <div class="inst-item" data-galeria="biblioteca">
-            <img src="img/galery4.jpg" alt="">
-            <div class="inst-overlay">Biblioteca</div>
-        </div>
-
-        <div class="inst-item" data-galeria="auditorio">
-            <img src="img/galery8.jpg" alt="">
-            <div class="inst-overlay">Auditorio</div>
-        </div>
-
-        <div class="inst-item" data-galeria="deporte">
-            <img src="img/galery5.jpg" alt="">
-            <div class="inst-overlay">Área Deportiva</div>
-        </div>
-
-        <div class="inst-item" data-galeria="cafeteria">
-            <img src="img/galery7.jpg" alt="">
-            <div class="inst-overlay">Cafetería</div>
+            <!-- duplicadas para efecto infinito -->
+            <img src="img/galery6.jpg">
+            <img src="img/galery7.jpg">
+            <img src="img/galery8.jpg">
         </div>
     </div>
 </section>
-
-<!-- ===== MODAL GALERÍA ===== -->
-<div id="galeriaModal" class="galeria-modal">
-    <span class="cerrar-galeria">&times;</span>
-    <img id="imagenGrande">
-    <div class="galeria-controles">
-        <button id="prev">❮</button>
-        <button id="next">❯</button>
-    </div>
-</div>
 
 <!-- =========================================
         ACTIVIDADES COMPLEMENTARIAS
 ========================================= -->
-<section class="actividades-section">
+<section class="reconocimientos">
+    <h2>Reconocimientos</h2>
 
-    <h2 class="actividades-title">Actividades Complementarias</h2>
+    <div class="reco-grid">
 
-    <div class="actividades-grid">
-
-        <div class="actividad-card">
-            <i class="fas fa-palette"></i>
-            <p>Arte</p>
+        <div class="reco-card">
+            <img src="img/2.jpg" alt="">
+            <div class="reco-overlay">
+                <i class="fas fa-trophy"></i>
+                <h3>Excelencia Académica</h3>
+            </div>
         </div>
 
-        <div class="actividad-card">
-            <i class="fas fa-futbol"></i>
-            <p>Deportes</p>
+        <div class="reco-card">
+            <img src="img/2.jpg" alt="">
+            <div class="reco-overlay">
+                <i class="fas fa-medal"></i>
+                <h3>Concurso Nacional</h3>
+            </div>
         </div>
 
-        <div class="actividad-card">
-            <i class="fas fa-music"></i>
-            <p>Danzas</p>
-        </div>
-
-        <div class="actividad-card">
-            <i class="fas fa-microscope"></i>
-            <p>Ciencias</p>
+        <div class="reco-card">
+            <img src="img/2.jpg" alt="">
+            <div class="reco-overlay">
+                <i class="fas fa-award"></i>
+                <h3>Certificación de Calidad</h3>
+            </div>
         </div>
 
     </div>
-
 </section>
 
 <!-- =========================================
@@ -284,17 +272,6 @@ República Argentina
         <div class="info-card" data-pdf="pdfs/uniforme.pdf">Uniforme</div>
     </div>
 </section>
-<!-- ===== MODAL ===== -->
-<div id="modalInfo" class="modal">
-    <span class="cerrar">&times;</span>
-    <img class="modal-contenido" id="imgGrande">
-</div>
-
-<div id="modalHorario" class="modal">
-    <span class="cerrar">&times;</span>
-    <img class="modal-contenido" id="imgGrande">
-</div>
-
 <!-- =========================================
                 CONTACTO
 ========================================= -->
@@ -315,12 +292,12 @@ República Argentina
                     <div class="input-fila">
                         <div class="input-grupo">
                             <label>Nombres</label>
-                            <input type="text" placeholder="Ej: Juan Pérez" required>
+                            <input type="text" placeholder="Nombres del Estudiante" required>
                         </div>
 
                         <div class="input-grupo">
                             <label>Apellidos</label>
-                            <input type="text" placeholder="Ej: García López" required>
+                            <input type="text" placeholder="Apellidos del Estudiante" required>
                         </div>
                     </div>
 
@@ -391,12 +368,11 @@ República Argentina
                     FOOTER
 ========================================= -->
 <footer class="footer">
-
     <div class="footer-container">
 
         <!-- Columna 1 -->
         <div class="footer-col">
-            <img src="img/insignia.jpg" alt="Logo" class="footer-logo">
+            <img src="img/insignia.png" alt="Logo" class="footer-logo">
             <div class="social-links">
                 <a href="https://www.facebook.com/share/1Az4zscGRw/" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="https://wa.me/51900000000" target="_blank"><i class="fab fa-whatsapp"></i></a>
@@ -408,7 +384,8 @@ República Argentina
         <div class="footer-col">
             <h3>Contacto</h3>
             <p><i class="fas fa-phone"></i> Telefono: (043) 311944</p>
-            <p><i class="fas fa-envelope"></i> informes@republicaargentina.gmail.com</p>
+            <p><i class="fas fa-envelope"></i> iee.republicaargenrina@gmail.com</p>
+            <p><i class="fas fa-tools"></i> Soporte Técnico</p>
 
             <p>
                 <i class="fas fa-school"></i>
@@ -416,7 +393,12 @@ República Argentina
             </p>
 
             <p>
-                <i class="fas fa-landmark"></i>
+                <i class="fas fa-building-columns"></i>
+                <a href="https://ugelsanta.gob.pe/" target="_blank">Ugel Santa</a>
+            </p>
+
+            <p>
+                <i class="fas fa-graduation-cap"></i>
                 <a href="https://www.gob.pe/minedu" target="_blank">Ministerio de Educación</a>
             </p>
         </div>
@@ -430,15 +412,19 @@ República Argentina
                         Avenida Pacífico s/n, Urbanización Buenos Aires, Nuevo Chimbote
                     </a>
                 </li>
+                
             </ul>
         </div>
     </div>
     <div class="footer-bottom">
         <p>&copy; 2026 I.E. República Argentina - Todos los derechos reservados.</p>
     </div>
+    
 </footer>
 
-
+<!-- =========================================
+                    SCRIPT
+========================================= -->
 
 <script>
     document.querySelectorAll(".info-card").forEach(card => {
